@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The I'm — Icon</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; background: #F5F3EF; display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; padding: 40px; }
+
+  .icon {
+    background: #1C1E2A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .icon::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C8A96A, transparent);
+  }
+  .icon .the {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 4px;
+    color: #7A7F9A;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .icon .mark {
+    display: flex;
+    align-items: baseline;
+    line-height: 1;
+  }
+  .icon .i, .icon .m {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: #F2EEE7;
+  }
+  .icon .apos {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: #C8A96A;
+  }
+
+  /* XL 400×400 */
+  .icon-xl { width: 400px; height: 400px; border-radius: 40px; gap: 8px; }
+  .icon-xl .the { font-size: 16px; }
+  .icon-xl .i, .icon-xl .m { font-size: 180px; }
+  .icon-xl .apos { font-size: 180px; margin: 0 8px; }
+
+  /* LG 200×200 */
+  .icon-lg { width: 200px; height: 200px; border-radius: 20px; gap: 4px; }
+  .icon-lg .the { font-size: 9px; }
+  .icon-lg .i, .icon-lg .m { font-size: 90px; }
+  .icon-lg .apos { font-size: 90px; margin: 0 4px; }
+
+  /* MD 96×96 */
+  .icon-md { width: 96px; height: 96px; border-radius: 10px; gap: 2px; }
+  .icon-md .the { font-size: 5px; }
+  .icon-md .i, .icon-md .m { font-size: 44px; }
+  .icon-md .apos { font-size: 44px; margin: 0 1px; }
+
+  /* SM 48×48 */
+  .icon-sm { width: 48px; height: 48px; border-radius: 6px; }
+  .icon-sm .the { display: none; }
+  .icon-sm .i, .icon-sm .m { font-size: 24px; }
+  .icon-sm .apos { font-size: 24px; margin: 0 1px; }
+
+  /* CIRCLE AVATAR */
+  .avatar {
+    background: #1C1E2A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .avatar .mark { display: flex; align-items: baseline; }
+  .avatar .i, .avatar .m { font-family: 'DM Serif Display', serif; font-style: italic; color: #F2EEE7; }
+  .avatar .apos { font-family: 'DM Serif Display', serif; font-style: italic; color: #C8A96A; }
+
+  .avatar-xl { width: 300px; height: 300px; }
+  .avatar-xl .i, .avatar-xl .m { font-size: 120px; }
+  .avatar-xl .apos { font-size: 120px; margin: 0 4px; }
+
+  .avatar-lg { width: 150px; height: 150px; }
+  .avatar-lg .i, .avatar-lg .m { font-size: 60px; }
+  .avatar-lg .apos { font-size: 60px; margin: 0 2px; }
+
+  .avatar-md { width: 80px; height: 80px; }
+  .avatar-md .i, .avatar-md .m { font-size: 32px; }
+  .avatar-md .apos { font-size: 32px; margin: 0 1px; }
+
+  .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #9A9080;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 8px;
+  }
+  .group { display: flex; flex-direction: column; align-items: center; }
+  .section-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #C8A96A;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E0D9CF;
+  }
+  .row { display: flex; gap: 24px; align-items: flex-end; width: 100%; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+</style>
+</head>
+<body>
+
+<div style="width:100%">
+  <div class="section-title">ICON QUADRATA</div>
+  <div class="row">
+    <div class="group">
+      <div class="icon icon-xl">
+        <div class="the">THE</div>
+        <div class="mark"><span class="i">I</span><span class="apos">'</span><span class="m">m</span></div>
+      </div>
+      <div class="label">400×400 · App Store</div>
+    </div>
+    <div class="group">
+      <div class="icon icon-lg">
+        <div class="the">THE</div>
+        <div class="mark"><span class="i">I</span><span class="apos">'</span><span class="m">m</span></div>
+      </div>
+      <div class="label">200×200 · Desktop</div>
+    </div>
+    <div class="group">
+      <div class="icon icon-md">
+        <div class="the">THE</div>
+        <div class="mark"><span class="i">I</span><span class="apos">'</span><span class="m">m</span></div>
+      </div>
+      <div class="label">96×96 · Slack</div>
+    </div>
+    <div class="group">
+      <div class="icon icon-sm">
+        <div class="mark"><span class="i">I</span><span class="apos">'</span><span class="m">m</span></div>
+      </div>
+      <div class="label">48×48 · Favicon</div>
+    </div>
+  </div>
+
+  <div class="section-title">AVATAR CIRCOLARE</div>
+  <div class="row">
+    <div class="group">
+      <div class="avatar avatar-xl">
+        <div class="mark"><span class="i">I</span><span class="apos">'</span><span class="m">m</span></div>
+      </div>
+      <div class="label">300×300 · LinkedIn</div>
+    </div>
+    <div class="group">
+      <div class="avatar avatar-lg">
+        <div class="mark"><span class="i">I</span><span class="apos">'</span><span class="m">m</span></div>
+      </div>
+      <div class="label">150×150 · Instagram</div>
+    </div>
+    <div class="group">
+      <div class="avatar avatar-md">
+        <div class="mark"><span class="i">I</span><span class="apos">'</span><span class="m">m</span></div>
+      </div>
+      <div class="label">80×80 · WhatsApp</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

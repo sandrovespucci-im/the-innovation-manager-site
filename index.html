@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Innovation Manager — Sandro Vespucci</title>
+<meta name="description" content="Innovation Manager esterno per PMI. Trasformo dati, processi e innovazione in risultati concreti. Lecce, Puglia." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --slate: #1C1E2A;
+    --navy: #0A1628;
+    --gold: #C8A96A;
+    --cream: #F2EEE7;
+    --light-muted: #BFC3D9;
+    --muted: #7A7F9A;
+    --muted-dark: #6B708A;
+    --line: rgba(242, 238, 231, 0.10);
+    --line-strong: rgba(242, 238, 231, 0.22);
+    --container: 1320px;
+    --gutter: clamp(20px, 4vw, 64px);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --mono: 'Space Mono', ui-monospace, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--mono);
+    background: var(--slate);
+    color: var(--cream);
+    line-height: 1.55;
+    font-size: 15px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection { background: var(--gold); color: var(--navy); }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+  /* Background grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: radial-gradient(rgba(242,238,231,0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: overlay;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    position: relative;
+  }
+
+  /* ============ NAV ============ */
+  nav.top {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  nav.top.scrolled {
+    background: rgba(28, 30, 42, 0.78);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 14px var(--gutter);
+    border-bottom-color: var(--line);
+  }
+  .brand-mark {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    color: var(--cream);
+    letter-spacing: -0.5px;
+  }
+  .brand-mark .apos { color: var(--gold); padding: 0 1px; }
+  .brand-mark .small {
+    font-family: var(--mono);
+    font-style: normal;
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    margin-left: 14px;
+    text-transform: uppercase;
+    transform: translateY(-3px);
+    border-left: 1px solid var(--line-strong);
+    padding-left: 14px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--light-muted);
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a .num {
+    color: var(--gold);
+    font-size: 9px;
+    margin-right: 6px;
+    opacity: 0.7;
+  }
+  .nav-right { display: flex; align-items: center; gap: 24px; }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .lang-toggle button {
+    padding: 6px 8px;
+    color: var(--muted);
+    transition: color 0.2s ease;
+    letter-spacing: 2px;
+  }
+  .lang-toggle button.active { color: var(--gold); }
+  .lang-toggle button:hover { color: var(--cream); }
+  .lang-toggle .sep { color: var(--line-strong); }
+
+  .nav-cta {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream);
+    padding: 10px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-cta:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .nav-cta::after {
+    content: "→";
+    transition: transform 0.25s ease;
+  }
+  .nav-cta:hover::after { transform: translateX(3px); }
+
+  .nav-burger {
+    display: none;
+    width: 36px; height: 36px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+  }
+  .nav-burger span {
+    display: block;
+    width: 22px; height: 1px;
+    background: var(--cream);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  body.menu-open .nav-burger span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+  body.menu-open .nav-burger span:nth-child(2) { opacity: 0; }
+  body.menu-open .nav-burger span:nth-child(3) { transform: translateY(-3px) rotate(-45deg); }
+
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .nav-right .nav-cta { display: none; }
+    .nav-burger { display: flex; }
+    nav.top.menu-open-mobile,
+    body.menu-open nav.top { background: var(--slate); }
+    body.menu-open .mobile-menu { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background: var(--slate);
+    padding: 100px var(--gutter) 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+  }
+  .mobile-menu a {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 36px;
+    color: var(--cream);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .mobile-menu a .num { color: var(--gold); font-family: var(--mono); font-style: normal; font-size: 11px; letter-spacing: 2px; }
+
+  /* ============ TYPOGRAPHY UTILITIES ============ */
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .display {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    color: var(--cream);
+    text-wrap: balance;
+  }
+  .display em { color: var(--gold); font-style: italic; }
+  .lede {
+    font-size: clamp(15px, 1.3vw, 17px);
+    color: var(--light-muted);
+    line-height: 1.7;
+    max-width: 60ch;
+    text-wrap: pretty;
+  }
+  .micro {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============ SECTION CHROME ============ */
+  section {
+    position: relative;
+    padding: clamp(80px, 12vw, 160px) 0;
+    border-top: 1px solid var(--line);
+  }
+  section:first-of-type { border-top: none; }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    margin-bottom: clamp(50px, 7vw, 90px);
+    align-items: baseline;
+  }
+  .section-head .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+  .section-head .num::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 8px;
+    border: 1px solid var(--gold);
+    margin-right: 12px;
+    transform: translateY(0);
+  }
+  .section-head h2 {
+    font-size: clamp(32px, 4.5vw, 56px);
+  }
+  @media (max-width: 720px) {
+    .section-head { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    align-items: start;
+    flex: 1;
+  }
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 8px;
+  }
+  .hero-meta .label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .hero-meta .label strong { color: var(--gold); display: block; margin-bottom: 4px; font-weight: 700; }
+
+  .hero h1 {
+    font-size: clamp(48px, 9vw, 148px);
+    line-height: 0.94;
+    letter-spacing: -0.03em;
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--cream);
+  }
+  .hero h1 em { color: var(--gold); }
+  .hero h1 .line {
+    display: block;
+    overflow: hidden;
+  }
+  .hero h1 .line span {
+    display: inline-block;
+    transform: translateY(110%);
+    animation: heroRise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  .hero h1 .line:nth-child(2) span { animation-delay: 0.12s; }
+  .hero h1 .line:nth-child(3) span { animation-delay: 0.24s; }
+  @keyframes heroRise { to { transform: translateY(0); } }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-top: 80px;
+  }
+  .hero-claim {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(18px, 1.7vw, 22px);
+    color: var(--light-muted);
+    line-height: 1.45;
+    max-width: 36ch;
+  }
+  .hero-claim em { color: var(--gold); }
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 28px;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    border-radius: 2px;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px -16px rgba(200, 169, 106, 0.6);
+  }
+  .btn-primary .arrow {
+    width: 20px; height: 1px; background: var(--navy); position: relative; transition: width 0.3s ease;
+  }
+  .btn-primary .arrow::after {
+    content: "";
+    position: absolute;
+    right: 0; top: -3px;
+    width: 7px; height: 7px;
+    border-top: 1px solid var(--navy);
+    border-right: 1px solid var(--navy);
+    transform: rotate(45deg);
+  }
+  .btn-primary:hover .arrow { width: 28px; }
+  .btn-secondary {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line-strong);
+    transition: color 0.25s ease, border-color 0.25s ease;
+  }
+  .btn-secondary:hover { color: var(--gold); border-color: var(--gold); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    right: var(--gutter);
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .hero-scroll::after {
+    content: "";
+    width: 1px; height: 60px;
+    background: linear-gradient(to top, transparent, var(--gold));
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: bottom; }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  @media (max-width: 880px) {
+    .hero-grid, .hero-bottom { grid-template-columns: 1fr; }
+    .hero-meta { flex-direction: row; flex-wrap: wrap; gap: 32px; }
+    .hero-bottom { margin-top: 48px; }
+    .hero-scroll { display: none; }
+  }
+
+  /* ============ MARQUEE TICKER ============ */
+  .ticker {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    padding: 22px 0;
+    background: var(--navy);
+  }
+  .ticker-track {
+    display: flex;
+    gap: 60px;
+    white-space: nowrap;
+    animation: tickerScroll 40s linear infinite;
+    width: max-content;
+  }
+  .ticker-item {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.4vw, 32px);
+    color: var(--light-muted);
+  }
+  .ticker-item em { color: var(--gold); }
+  .ticker-dot {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+    align-self: center;
+    flex-shrink: 0;
+  }
+  @keyframes tickerScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ============ MANIFESTO ============ */
+  .manifesto {
+    background: var(--navy);
+  }
+  .manifesto-body {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+  }
+  .manifesto-text {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(28px, 3.6vw, 48px);
+    line-height: 1.18;
+    color: var(--cream);
+    max-width: 22ch;
+    letter-spacing: -0.01em;
+  }
+  .manifesto-text em { color: var(--gold); }
+  .manifesto-text .secondary {
+    color: var(--muted-dark);
+  }
+  .manifesto-foot {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    color: var(--light-muted);
+    font-size: 14px;
+  }
+  .manifesto-foot .col p + p { margin-top: 12px; }
+  @media (max-width: 720px) {
+    .manifesto-body, .manifesto-foot { grid-template-columns: 1fr; }
+  }
+
+  /* ============ SERVICES ACCORDION ============ */
+  .services-list {
+    border-top: 1px solid var(--line-strong);
+  }
+  .service {
+    border-bottom: 1px solid var(--line-strong);
+    transition: background 0.3s ease;
+  }
+  .service summary {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding: 32px 0;
+    cursor: pointer;
+    list-style: none;
+    transition: padding 0.3s ease;
+  }
+  .service summary::-webkit-details-marker { display: none; }
+  .service summary:hover {
+    padding-left: 12px;
+  }
+  .service summary:hover .service-title { color: var(--gold); }
+  .service-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
+  .service-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(26px, 3.4vw, 44px);
+    color: var(--cream);
+    line-height: 1.1;
+    transition: color 0.3s ease;
+  }
+  .service-toggle {
+    width: 40px; height: 40px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .service-toggle::before, .service-toggle::after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+    transition: transform 0.3s ease;
+  }
+  .service-toggle::before { width: 12px; height: 1px; }
+  .service-toggle::after { width: 1px; height: 12px; }
+  .service[open] .service-toggle {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--navy);
+  }
+  .service[open] .service-toggle::after { transform: scaleY(0); }
+  .service[open] .service-title { color: var(--gold); }
+
+  .service-body {
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr;
+    gap: 32px;
+    padding: 0 0 40px 0;
+    animation: fadeUp 0.5s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .service-body p {
+    color: var(--light-muted);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 50ch;
+  }
+  .service-body .meta {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .service-body .meta .label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .service-body .meta .value {
+    color: var(--cream);
+    font-size: 14px;
+  }
+  .service-body .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .service-body .tag {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+  }
+  @media (max-width: 720px) {
+    .service summary, .service-body { grid-template-columns: 1fr; }
+    .service-num, .service-toggle { display: none; }
+    .service summary { padding: 24px 0; }
+  }
+
+  /* ============ METHOD TABS ============ */
+  .method {
+    background: var(--navy);
+  }
+  .method-tabs {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: start;
+  }
+  .method-tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+  .method-tab {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 16px;
+    align-items: baseline;
+    padding: 22px 0 22px 24px;
+    text-align: left;
+    width: 100%;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    transition: padding 0.3s ease;
+  }
+  .method-tab::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+  }
+  .method-tab.active::before { transform: scaleY(1); }
+  .method-tab .tab-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 2px;
+  }
+  .method-tab.active .tab-num { color: var(--gold); }
+  .method-tab .tab-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    color: var(--muted-dark);
+    transition: color 0.3s ease;
+  }
+  .method-tab:hover .tab-name { color: var(--light-muted); }
+  .method-tab.active .tab-name { color: var(--cream); }
+
+  .method-panel {
+    display: none;
+    animation: panelIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .method-panel.active { display: block; }
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .method-panel .panel-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .method-panel h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(40px, 5.5vw, 72px);
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+  }
+  .method-panel h3 em { color: var(--gold); }
+  .method-panel .body {
+    color: var(--light-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 56ch;
+  }
+  .method-panel .actions {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .method-panel .actions .item .label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .method-panel .actions .item p {
+    color: var(--cream);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  @media (max-width: 880px) {
+    .method-tabs { grid-template-columns: 1fr; }
+  }
+
+  /* ============ ABOUT (Sandro) ============ */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr;
+    gap: 40px;
+  }
+  .about-portrait {
+    grid-column: 2 / 3;
+    aspect-ratio: 4/5;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+  }
+  .about-portrait::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        transparent 0,
+        transparent 14px,
+        rgba(200, 169, 106, 0.07) 14px,
+        rgba(200, 169, 106, 0.07) 15px
+      );
+  }
+  .portrait-label {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .portrait-label strong { color: var(--gold); font-weight: 700; }
+  .portrait-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--muted);
+  }
+  .portrait-center .frame-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .portrait-center .frame-name {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 26px;
+    color: var(--light-muted);
+  }
+
+  .about-text {
+    grid-column: 3 / 4;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-self: center;
+  }
+  .about-text p {
+    color: var(--light-muted);
+    line-height: 1.75;
+    font-size: 15px;
+  }
+  .about-text strong { color: var(--cream); font-weight: 700; }
+
+  .stats-row {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 180px repeat(4, 1fr);
+    gap: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .stat .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(48px, 5.5vw, 80px);
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .stat .label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 880px) {
+    .about-grid, .stats-row { grid-template-columns: 1fr; }
+    .about-portrait, .about-text { grid-column: 1 / -1; }
+    .stats-row { gap: 32px; }
+  }
+
+  /* ============ TOOLKIT ============ */
+  .toolkit {
+    background: var(--navy);
+  }
+  .toolkit-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 40px;
+  }
+  .toolkit-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-content: flex-start;
+  }
+  .toolkit-tags span {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--light-muted);
+    padding: 12px 18px;
+    border: 1px solid var(--line-strong);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+    cursor: default;
+  }
+  .toolkit-tags span:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .toolkit-tags span.featured {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  @media (max-width: 720px) { .toolkit-grid { grid-template-columns: 1fr; } }
+
+  /* ============ TARGET ============ */
+  .target-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line-strong);
+    border: 1px solid var(--line-strong);
+  }
+  .target-card {
+    background: var(--slate);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: background 0.3s ease;
+  }
+  .target-card:hover { background: var(--navy); }
+  .target-card .card-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+  .target-card h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 28px;
+    color: var(--cream);
+    line-height: 1.15;
+  }
+  .target-card p {
+    color: var(--light-muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  @media (max-width: 720px) { .target-grid { grid-template-columns: 1fr; } }
+
+  /* ============ FAQ ============ */
+  .faq-list { border-top: 1px solid var(--line-strong); }
+  .faq {
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .faq summary {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding: 26px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(20px, 2.2vw, 26px);
+    color: var(--cream);
+    transition: color 0.3s ease;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary:hover { color: var(--gold); }
+  .faq[open] summary { color: var(--gold); }
+  .faq .toggle {
+    width: 30px; height: 30px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  .faq .toggle::before, .faq .toggle::after {
+    content: "";
+    position: absolute;
+    background: currentColor;
+    transition: transform 0.3s ease;
+  }
+  .faq .toggle::before { width: 10px; height: 1px; }
+  .faq .toggle::after { width: 1px; height: 10px; }
+  .faq[open] .toggle { border-color: var(--gold); color: var(--gold); }
+  .faq[open] .toggle::after { transform: scaleY(0); }
+  .faq-body {
+    padding: 0 0 28px 0;
+    color: var(--light-muted);
+    font-size: 15px;
+    line-height: 1.75;
+    max-width: 70ch;
+    animation: fadeUp 0.4s ease;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact {
+    background: var(--navy);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+  }
+  .contact-left h2 {
+    font-size: clamp(40px, 6vw, 76px);
+    margin-bottom: 32px;
+  }
+  .contact-left .lede { margin-bottom: 48px; }
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  .contact-info .row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+  .contact-info .row .label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .contact-info .row .value {
+    color: var(--cream);
+    font-size: 15px;
+  }
+  .contact-info .row .value a {
+    transition: color 0.2s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .contact-info .row .value a:hover {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: var(--slate);
+    padding: 40px;
+    border: 1px solid var(--line-strong);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    padding: 18px 0;
+  }
+  .form-row.split { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .form-row.split > .field { padding: 0; border-right: none; }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .field label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .field input, .field textarea, .field select {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--cream);
+    font-family: var(--mono);
+    font-size: 15px;
+    padding: 6px 0;
+    width: 100%;
+    resize: none;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: var(--muted-dark); }
+  .field select { -webkit-appearance: none; appearance: none; cursor: pointer; }
+  .field select option { background: var(--slate); color: var(--cream); }
+  .field textarea { min-height: 100px; line-height: 1.5; }
+  .form-row.split .field:first-child { border-right: 1px solid var(--line); padding-right: 24px; }
+
+  .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 28px;
+    margin-top: 8px;
+  }
+  .form-consent {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .form-consent input { margin-top: 2px; accent-color: var(--gold); }
+  .form-actions .btn-primary { align-self: flex-start; cursor: pointer; }
+
+  .form-success {
+    display: none;
+    padding: 40px;
+    border: 1px solid var(--gold);
+    text-align: center;
+    background: var(--slate);
+  }
+  .form-success.visible { display: block; animation: fadeUp 0.5s ease; }
+  .form-success .icon {
+    width: 48px; height: 48px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .form-success h3 {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--cream);
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .form-success p { color: var(--light-muted); font-size: 14px; }
+
+  @media (max-width: 880px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-form { padding: 28px; }
+    .form-row.split { grid-template-columns: 1fr; gap: 0; }
+    .form-row.split .field:first-child { border-right: none; padding-right: 0; padding-bottom: 18px; border-bottom: 1px solid var(--line); margin-bottom: 0; }
+    .form-row.split .field:last-child { padding-top: 18px; }
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--slate);
+    padding: 80px var(--gutter) 32px;
+    border-top: 1px solid var(--line);
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-brand .brand-mark { font-size: 36px; margin-bottom: 16px; }
+  .footer-brand p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    max-width: 36ch;
+  }
+  .footer-col h4 {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a {
+    color: var(--light-muted);
+    font-size: 13px;
+    transition: color 0.2s ease;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted-dark);
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+
+  /* ============ REVEAL ============ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal[data-delay="1"] { transition-delay: 0.08s; }
+  .reveal[data-delay="2"] { transition-delay: 0.16s; }
+  .reveal[data-delay="3"] { transition-delay: 0.24s; }
+  .reveal[data-delay="4"] { transition-delay: 0.32s; }
+
+  /* Side nav indicator */
+  .scrollindicator {
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .scrollindicator a {
+    display: block;
+    width: 22px; height: 1px;
+    background: var(--line-strong);
+    transition: all 0.3s ease;
+  }
+  .scrollindicator a.active { background: var(--gold); width: 32px; }
+  @media (max-width: 880px) { .scrollindicator { display: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="top" id="topNav" data-screen-label="Nav">
+  <a href="#hero" class="brand-mark" aria-label="The Innovation Manager">
+    <span>I</span><span class="apos">'</span><span>m</span>
+    <span class="small" data-i="The Innovation Manager" data-en="The Innovation Manager">The Innovation Manager</span>
+  </a>
+  <div class="nav-links">
+    <a href="#servizi"><span class="num">01</span><span data-i="Servizi" data-en="Services">Servizi</span></a>
+    <a href="#metodo"><span class="num">02</span><span data-i="Metodo" data-en="Method">Metodo</span></a>
+    <a href="#chi-sono"><span class="num">03</span><span data-i="Chi sono" data-en="About">Chi sono</span></a>
+    <a href="#target"><span class="num">04</span><span data-i="Target" data-en="Audience">Target</span></a>
+    <a href="#faq"><span class="num">05</span><span data-i="FAQ" data-en="FAQ">FAQ</span></a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="it">IT</button>
+      <span class="sep">/</span>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="#contatto" class="nav-cta" data-i="Check-up gratuito" data-en="Free check-up">Check-up gratuito</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#servizi" data-i="Servizi" data-en="Services"><span data-i="Servizi" data-en="Services">Servizi</span><span class="num">01</span></a>
+  <a href="#metodo"><span data-i="Metodo" data-en="Method">Metodo</span><span class="num">02</span></a>
+  <a href="#chi-sono"><span data-i="Chi sono" data-en="About">Chi sono</span><span class="num">03</span></a>
+  <a href="#target"><span data-i="Target" data-en="Audience">Target</span><span class="num">04</span></a>
+  <a href="#faq"><span data-i="FAQ" data-en="FAQ">FAQ</span><span class="num">05</span></a>
+  <a href="#contatto"><span data-i="Contatto" data-en="Contact">Contatto</span><span class="num">06</span></a>
+</div>
+
+<aside class="scrollindicator" aria-hidden="true">
+  <a href="#hero" data-target="hero" class="active"></a>
+  <a href="#servizi" data-target="servizi"></a>
+  <a href="#metodo" data-target="metodo"></a>
+  <a href="#chi-sono" data-target="chi-sono"></a>
+  <a href="#target" data-target="target"></a>
+  <a href="#faq" data-target="faq"></a>
+  <a href="#contatto" data-target="contatto"></a>
+</aside>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero" data-screen-label="01 Hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-meta">
+        <div class="label">
+          <strong data-i="Innovation Manager" data-en="Innovation Manager">Innovation Manager</strong>
+          <span data-i="esterno per PMI" data-en="for SMEs">esterno per PMI</span>
+        </div>
+        <div class="label">
+          <strong>2026 / IT</strong>
+          <span data-i="Lecce, Puglia" data-en="Lecce, Italy">Lecce, Puglia</span>
+        </div>
+        <div class="label">
+          <strong data-i="In certificazione" data-en="In certification">In certificazione</strong>
+          <span>UNI 11814 · ACCREDIA</span>
+        </div>
+      </div>
+
+      <h1>
+        <span class="line"><span data-i="Decidere" data-en="Deciding">Decidere</span></span>
+        <span class="line"><span data-i="è facile." data-en="is easy.">è facile.</span></span>
+        <span class="line" style="width: 777px; height: 111px"><span><em data-i="Agire" data-en="Acting">Agire</em>&nbsp;<span data-i="lo è meno." data-en="less so.">lo è meno.</span></span></span>
+      </h1>
+    </div>
+
+    <div class="hero-bottom">
+      <div></div>
+      <div class="hero-claim" data-i="Il vantaggio competitivo non è decidere. È quanto velocemente riesci ad &lt;em&gt;agire&lt;/em&gt; dopo aver deciso." data-en="Competitive advantage isn't deciding. It's how fast you &lt;em&gt;act&lt;/em&gt; after you decide." style="width: 370px">Il vantaggio competitivo non è decidere. 
+È quanto velocemente riesci ad agire 
+dopo aver deciso.</div>
+      <div class="hero-actions">
+        <a href="#contatto" class="btn-primary">
+          <span data-i="Prenota check-up gratuito" data-en="Book a free check-up">Prenota check-up gratuito</span>
+          <span class="arrow"></span>
+        </a>
+        <a href="#metodo" class="btn-secondary" data-i="Scopri il metodo →" data-en="Discover the method →">Scopri il metodo →</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span data-i="Scroll" data-en="Scroll">Scroll</span>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Business Intelligence</span><span class="ticker-dot"></span>
+    <span class="ticker-item"><em>Data Analytics</em></span><span class="ticker-dot"></span>
+    <span class="ticker-item">AI Applicata</span><span class="ticker-dot"></span>
+    <span class="ticker-item"><em>Automazione</em></span><span class="ticker-dot"></span>
+    <span class="ticker-item">Power BI</span><span class="ticker-dot"></span>
+    <span class="ticker-item"><em>Dashboard</em></span><span class="ticker-dot"></span>
+    <span class="ticker-item">ETL & Data Modeling</span><span class="ticker-dot"></span>
+    <span class="ticker-item"><em>Innovazione di processo</em></span><span class="ticker-dot"></span>
+  </div>
+</div>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" id="manifesto" data-screen-label="02 Manifesto">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 00 / Manifesto</div>
+      <h2 class="display"><span data-i="Innovare con criterio. Senza guru, senza slogan, senza fretta." data-en="Innovate with criteria. No gurus, no slogans, no rush.">Innovare con <em>criterio</em>. Senza guru, senza slogan, senza fretta.</span></h2>
+    </div>
+    <div class="manifesto-body">
+      <div></div>
+      <div class="manifesto-text reveal">
+        <span data-i='Molte aziende parlano di innovazione come obiettivo astratto. In realtà significa &lt;em&gt;migliorare processi&lt;/em&gt;, decisioni e risultati in modo misurabile.' data-en='Many companies treat innovation as an abstract goal. Really, it means &lt;em&gt;improving processes&lt;/em&gt;, decisions and results in measurable ways.'>
+          Molte aziende parlano di innovazione come obiettivo astratto. In realtà significa <em>migliorare processi</em>, decisioni e risultati in modo misurabile.
+        </span>
+      </div>
+    </div>
+    <div class="manifesto-foot reveal" data-delay="1">
+      <div class="micro" data-i="Approccio" data-en="Approach">Approccio</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;">
+        <div class="col">
+          <p style="color: var(--gold); font-family: var(--serif); font-style: italic; font-size: 18px; margin-bottom: 8px;" data-i="Dal campo." data-en="From the field.">Dal campo.</p>
+          <p data-i="Vengo dall'operatività interna, non dalla consulenza astratta. Conosco le aziende dal di dentro." data-en="I come from internal operations, not abstract consulting. I know companies from the inside.">Vengo dall'operatività interna, non dalla consulenza astratta. Conosco le aziende dal di dentro.</p>
+        </div>
+        <div class="col">
+          <p style="color: var(--gold); font-family: var(--serif); font-style: italic; font-size: 18px; margin-bottom: 8px;" data-i="Sul dato." data-en="On data.">Sul dato.</p>
+          <p data-i="Metto al centro il dato e le persone che lo usano ogni giorno — non la tecnologia per sé stessa." data-en="I put data and the people who use it every day at the center — not technology for its own sake.">Metto al centro il dato e le persone che lo usano ogni giorno — non la tecnologia per sé stessa.</p>
+        </div>
+        <div class="col">
+          <p style="color: var(--gold); font-family: var(--serif); font-style: italic; font-size: 18px; margin-bottom: 8px;" data-i="Senza fretta." data-en="Without rush.">Senza fretta.</p>
+          <p data-i="Non propongo soluzioni prima di capire i problemi. Niente template, niente promesse irrealistiche." data-en="I don't propose solutions before understanding the problems. No templates, no unrealistic promises.">Non propongo soluzioni prima di capire i problemi. Niente template, niente promesse irrealistiche.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVIZI ============ -->
+<section id="servizi" data-screen-label="03 Servizi">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 01 / <span data-i="Servizi" data-en="Services">Servizi</span></div>
+      <h2 class="display"><span data-i="Cinque modi di lavorare insieme. Sempre tailor made, mai dal template." data-en="Five ways to work together. Always tailor made, never from a template.">Cinque modi di lavorare <em>insieme</em>. Sempre tailor made, mai dal template.</span></h2>
+    </div>
+
+    <div class="services-list" id="servicesList">
+      <details class="service" open>
+        <summary>
+          <span class="service-num">01</span>
+          <span class="service-title" data-i="Check-up Iniziale" data-en="Initial Check-up">Check-up Iniziale</span>
+          <span class="service-toggle"></span>
+        </summary>
+        <div class="service-body">
+          <span></span>
+          <p data-i="Prima analisi del contesto aziendale. Serve a capire se ha senso procedere e con quale priorità. Una conversazione gratuita, senza impegno, senza vincoli — l'unico modo onesto per iniziare." data-en="First analysis of the company context. Useful to understand whether it makes sense to proceed and with what priority. A free conversation, no commitment, no strings — the only honest way to start.">Prima analisi del contesto aziendale. Serve a capire se ha senso procedere e con quale priorità. Una conversazione gratuita, senza impegno, senza vincoli — l'unico modo onesto per iniziare.</p>
+          <div class="meta">
+            <div><span class="label" data-i="Investimento" data-en="Investment">Investimento</span><span class="value" data-i="Gratuito" data-en="Free">Gratuito</span></div>
+            <div><span class="label" data-i="Durata" data-en="Duration">Durata</span><span class="value" data-i="45–60 minuti" data-en="45–60 minutes">45–60 minuti</span></div>
+            <div><span class="label" data-i="Output" data-en="Output">Output</span><span class="value" data-i="Conversazione + sintesi" data-en="Call + summary">Conversazione + sintesi</span></div>
+          </div>
+        </div>
+      </details>
+
+      <details class="service">
+        <summary>
+          <span class="service-num">02</span>
+          <span class="service-title" data-i="Valutazione Innovazione" data-en="Innovation Assessment">Valutazione Innovazione</span>
+          <span class="service-toggle"></span>
+        </summary>
+        <div class="service-body">
+          <span></span>
+          <p data-i="Innovation Assessment Report — analisi approfondita di processi, dati, tecnologie e opportunità. Audit completo, identificazione dei gap, definizione delle priorità di intervento. Si esce con una mappa, non con un'opinione." data-en="Innovation Assessment Report — in-depth analysis of processes, data, technologies and opportunities. Full audit, gap identification, definition of intervention priorities. You leave with a map, not an opinion.">Innovation Assessment Report — analisi approfondita di processi, dati, tecnologie e opportunità. Audit completo, identificazione dei gap, definizione delle priorità di intervento. Si esce con una mappa, non con un'opinione.</p>
+          <div class="meta">
+            <div><span class="label" data-i="Investimento" data-en="Investment">Investimento</span><span class="value" data-i="Su richiesta" data-en="On request">Su richiesta</span></div>
+            <div><span class="label" data-i="Output" data-en="Output">Output</span><span class="value" data-i="Report + roadmap priorità" data-en="Report + priority roadmap">Report + roadmap priorità</span></div>
+            <div class="tags">
+              <span class="tag">Audit</span><span class="tag">Gap analysis</span><span class="tag">Priorità</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="service">
+        <summary>
+          <span class="service-num">03</span>
+          <span class="service-title" data-i="Progetto Innovazione" data-en="Innovation Project">Progetto Innovazione</span>
+          <span class="service-toggle"></span>
+        </summary>
+        <div class="service-body">
+          <span></span>
+          <p data-i="Progettazione di soluzioni su misura. Ambiti: Business Intelligence, dashboard interattive, AI applicata, automazione, ETL, architetture dati, roadmap operative. Ogni progetto è costruito su quella specifica azienda — non copiato da un template." data-en="Tailor-made solution design. Areas: Business Intelligence, interactive dashboards, applied AI, automation, ETL, data architectures, operational roadmaps. Every project is built on that specific company — not copied from a template.">Progettazione di soluzioni su misura. Ambiti: Business Intelligence, dashboard interattive, AI applicata, automazione, ETL, architetture dati, roadmap operative. Ogni progetto è costruito su quella specifica azienda — non copiato da un template.</p>
+          <div class="meta">
+            <div><span class="label" data-i="Investimento" data-en="Investment">Investimento</span><span class="value" data-i="Su richiesta" data-en="On request">Su richiesta</span></div>
+            <div><span class="label" data-i="Tempistica" data-en="Timeline">Tempistica</span><span class="value" data-i="Variabile per ambito" data-en="Variable by scope">Variabile per ambito</span></div>
+            <div class="tags">
+              <span class="tag">BI</span><span class="tag">Dashboard</span><span class="tag">AI</span><span class="tag">ETL</span><span class="tag">Automazione</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="service">
+        <summary>
+          <span class="service-num">04</span>
+          <span class="service-title" data-i="Innovation Manager Esterno" data-en="External Innovation Manager">Innovation Manager Esterno</span>
+          <span class="service-toggle"></span>
+        </summary>
+        <div class="service-body">
+          <span></span>
+          <p data-i="Servizio continuativo as-a-service. Coordinamento, monitoraggio KPI, supporto ai team interni, miglioramento continuo. Una figura di riferimento stabile per le aziende che vogliono governare l'innovazione senza assumere full-time." data-en="Ongoing as-a-service offering. Coordination, KPI monitoring, support for internal teams, continuous improvement. A stable reference figure for companies that want to govern innovation without hiring full-time.">Servizio continuativo as-a-service. Coordinamento, monitoraggio KPI, supporto ai team interni, miglioramento continuo. Una figura di riferimento stabile per le aziende che vogliono governare l'innovazione senza assumere full-time.</p>
+          <div class="meta">
+            <div><span class="label" data-i="Investimento" data-en="Investment">Investimento</span><span class="value" data-i="Su richiesta · mensile" data-en="On request · monthly">Su richiesta · mensile</span></div>
+            <div><span class="label" data-i="Modalità" data-en="Mode">Modalità</span><span class="value" data-i="Remoto + on-site Puglia" data-en="Remote + on-site Apulia">Remoto + on-site Puglia</span></div>
+            <div class="tags">
+              <span class="tag">As-a-service</span><span class="tag">KPI</span><span class="tag">Governance</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="service">
+        <summary>
+          <span class="service-num">05</span>
+          <span class="service-title" data-i="Formazione" data-en="Training">Formazione</span>
+          <span class="service-toggle"></span>
+        </summary>
+        <div class="service-body">
+          <span></span>
+          <p data-i="Workshop e percorsi su misura. Temi: dati, Power BI, AI applicata, cultura del dato, uso pratico dell'AI nei processi quotidiani. Erogabili in aula, online o in formato ibrido. Sempre con esempi e casi reali — niente teoria slegata dal lavoro." data-en="Tailor-made workshops and learning paths. Topics: data, Power BI, applied AI, data culture, practical use of AI in daily processes. Delivered in person, online or hybrid. Always with real examples and cases — no theory disconnected from work.">Workshop e percorsi su misura. Temi: dati, Power BI, AI applicata, cultura del dato, uso pratico dell'AI nei processi quotidiani. Erogabili in aula, online o in formato ibrido. Sempre con esempi e casi reali — niente teoria slegata dal lavoro.</p>
+          <div class="meta">
+            <div><span class="label" data-i="Investimento" data-en="Investment">Investimento</span><span class="value" data-i="Su richiesta" data-en="On request">Su richiesta</span></div>
+            <div><span class="label" data-i="Formato" data-en="Format">Formato</span><span class="value" data-i="Aula · Online · Ibrido" data-en="In person · Online · Hybrid">Aula · Online · Ibrido</span></div>
+            <div class="tags">
+              <span class="tag">Power BI</span><span class="tag">AI applicata</span><span class="tag">Cultura del dato</span>
+            </div>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METODO ============ -->
+<section class="method" id="metodo" data-screen-label="04 Metodo">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 02 / <span data-i="Metodo" data-en="Method">Metodo</span></div>
+      <h2 class="display"><span data-i="Quattro fasi. Un solo principio: capire prima di costruire." data-en="Four phases. One principle: understand before building.">Quattro <em>fasi</em>. Un solo principio: capire prima di costruire.</span></h2>
+    </div>
+
+    <div class="method-tabs">
+      <div class="method-tabs-list" role="tablist">
+        <button class="method-tab active" data-tab="0" role="tab">
+          <span class="tab-num">01</span>
+          <span class="tab-name" data-i="Analisi" data-en="Analysis">Analisi</span>
+        </button>
+        <button class="method-tab" data-tab="1" role="tab">
+          <span class="tab-num">02</span>
+          <span class="tab-name" data-i="Base dati" data-en="Data foundation">Base dati</span>
+        </button>
+        <button class="method-tab" data-tab="2" role="tab">
+          <span class="tab-num">03</span>
+          <span class="tab-name" data-i="Dashboard" data-en="Dashboards">Dashboard</span>
+        </button>
+        <button class="method-tab" data-tab="3" role="tab">
+          <span class="tab-num">04</span>
+          <span class="tab-name" data-i="Automazione" data-en="Automation">Automazione</span>
+        </button>
+      </div>
+
+      <div class="method-panels">
+        <div class="method-panel active" data-panel="0">
+          <div class="panel-eyebrow" data-i="Fase 01 · Capire" data-en="Phase 01 · Understand">Fase 01 · Capire</div>
+          <h3><span data-i="Capire come funziona davvero l'azienda." data-en="Understand how the company really works." style="font-family: &quot;Times New Roman&quot;">Capire come funziona <em>davvero</em> l'azienda.</span></h3>
+          <p class="body" data-i="Processi, persone, dati. Mappiamo il flusso di lavoro così com'è — non come dovrebbe essere sulla carta. Si parla con chi fa il lavoro ogni giorno, si guardano i dati esistenti, si individuano i punti di rottura. Niente PowerPoint pre-confezionati." data-en="Processes, people, data. We map the workflow as it is — not how it should be on paper. We talk to those doing the work every day, look at existing data, identify the friction points. No pre-packaged PowerPoints.">Processi, persone, dati. Mappiamo il flusso di lavoro così com'è — non come dovrebbe essere sulla carta. Si parla con chi fa il lavoro ogni giorno, si guardano i dati esistenti, si individuano i punti di rottura. Niente PowerPoint pre-confezionati.</p>
+          <div class="actions">
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Mappa onesta dello stato attuale" data-en="Honest map of the current state">Mappa onesta dello stato attuale</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Interviste · Process mapping · Audit dati" data-en="Interviews · Process mapping · Data audit">Interviste · Process mapping · Audit dati</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Imprenditore · Team operativo · IT" data-en="Owner · Ops team · IT">Imprenditore · Team operativo · IT</p></div>
+          </div>
+        </div>
+
+        <div class="method-panel" data-panel="1">
+          <div class="panel-eyebrow" data-i="Fase 02 · Organizzare" data-en="Phase 02 · Organize">Fase 02 · Organizzare</div>
+          <h3><span data-i="Organizzare le fondamenta informative." data-en="Organize the informational foundations.">Organizzare le <em>fondamenta</em> informative.</span></h3>
+          <p class="body" data-i="Una base dati solida è la condizione, non l'optional. Strutture, modelli, integrazioni, qualità del dato. Senza questo, ogni dashboard è un castello di carta. Si lavora su SQL Server, MySQL, ETL, modellazione — tutto pensato per durare oltre il progetto." data-en="A solid data foundation is the prerequisite, not an extra. Structures, models, integrations, data quality. Without it, every dashboard is a house of cards. We work on SQL Server, MySQL, ETL, modeling — designed to last beyond the project.">Una base dati solida è la condizione, non l'optional. Strutture, modelli, integrazioni, qualità del dato. Senza questo, ogni dashboard è un castello di carta. Si lavora su SQL Server, MySQL, ETL, modellazione — tutto pensato per durare oltre il progetto.</p>
+          <div class="actions">
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Modello dati documentato e affidabile" data-en="Documented, reliable data model">Modello dati documentato e affidabile</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="SQL Server · MySQL · ETL · Power Query" data-en="SQL Server · MySQL · ETL · Power Query">SQL Server · MySQL · ETL · Power Query</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="IT · Reparti operativi" data-en="IT · Ops departments">IT · Reparti operativi</p></div>
+          </div>
+        </div>
+
+        <div class="method-panel" data-panel="2">
+          <div class="panel-eyebrow" data-i="Fase 03 · Decidere" data-en="Phase 03 · Decide">Fase 03 · Decidere</div>
+          <h3><span data-i="Trasformare i dati in strumenti decisionali." data-en="Turn data into decision-making tools.">Trasformare i dati in <em>strumenti</em> decisionali.</span></h3>
+          <p class="body" data-i="Dashboard, KPI, report che il management consulta davvero. Costruite con Power BI, DAX, Power Query — ma il vero progetto sta nel definire cosa serve sapere e cosa è solo rumore. La differenza tra un report e una dashboard è una sola: la dashboard fa decidere." data-en="Dashboards, KPIs, reports the management actually uses. Built with Power BI, DAX, Power Query — but the real project is defining what needs to be known and what is just noise. The difference between a report and a dashboard is one: the dashboard drives decisions.">Dashboard, KPI, report che il management consulta davvero. Costruite con Power BI, DAX, Power Query — ma il vero progetto sta nel definire cosa serve sapere e cosa è solo rumore. La differenza tra un report e una dashboard è una sola: la dashboard fa decidere.</p>
+          <div class="actions">
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Dashboard adottate dal management" data-en="Dashboards adopted by management">Dashboard adottate dal management</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Power BI · DAX · KPI design" data-en="Power BI · DAX · KPI design">Power BI · DAX · KPI design</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Management · Responsabili" data-en="Management · Department heads">Management · Responsabili</p></div>
+          </div>
+        </div>
+
+        <div class="method-panel" data-panel="3">
+          <div class="panel-eyebrow" data-i="Fase 04 · Liberare" data-en="Phase 04 · Free up">Fase 04 · Liberare</div>
+          <h3><span data-i="Eliminare i processi lunghi e ripetitivi." data-en="Eliminate the long, repetitive processes.">Eliminare i processi <em>lunghi</em> e ripetitivi.</span></h3>
+          <p class="body" data-i="Dove la persona è solo un esecutore di task ripetitivi, c'è spreco. Power Automate, Agentic AI, integrazioni: si automatizza ciò che non richiede giudizio umano. Le persone tornano a fare il lavoro per cui sono state assunte — quello che richiede testa, non clic." data-en="Where a person is just a repetitive task executor, there is waste. Power Automate, Agentic AI, integrations: we automate what doesn't require human judgment. People go back to doing the work they were hired for — the kind that needs a brain, not clicks.">Dove la persona è solo un esecutore di task ripetitivi, c'è spreco. Power Automate, Agentic AI, integrazioni: si automatizza ciò che non richiede giudizio umano. Le persone tornano a fare il lavoro per cui sono state assunte — quello che richiede testa, non clic.</p>
+          <div class="actions">
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Tempo restituito alle persone" data-en="Time given back to people">Tempo restituito alle persone</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Power Automate · Agentic AI · LLM · API" data-en="Power Automate · Agentic AI · LLM · API">Power Automate · Agentic AI · LLM · API</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Tutta l'organizzazione" data-en="The whole organization">Tutta l'organizzazione</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHI SONO ============ -->
+<section id="chi-sono" data-screen-label="05 Chi sono">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 03 / <span data-i="Chi sono" data-en="About">Chi sono</span></div>
+      <h2 class="display"><span data-i="Sandro Vespucci. Quindici anni dentro un'azienda, prima di parlare di consulenza." data-en="Sandro Vespucci. Fifteen years inside a company, before talking about consulting.">Quindici anni dentro un'azienda, prima di parlare di consulenza.</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div></div>
+      <div class="about-portrait reveal">
+        <div class="portrait-center">
+          <div class="frame-label" data-i="Ritratto" data-en="Portrait">Ritratto</div>
+          <div class="frame-name">Sandro Vespucci</div>
+        </div>
+        <div class="portrait-label">
+          <span data-i="Innovation Manager" data-en="Innovation Manager">Innovation Manager</span>
+          <strong>2026</strong>
+        </div>
+      </div>
+      <div class="about-text reveal" data-delay="1">
+        <p data-i="&lt;strong&gt;15 anni di esperienza operativa&lt;/strong&gt; in Sorec s.r.l. (Lecce) come Business Intelligence Manager e Responsabile dei Processi (novembre 2010 — aprile 2026). Ho costruito dall'interno l'intera infrastruttura BI aziendale, dashboard adottate dal management come strumento primario, e portato a termine due migrazioni CRM con piena continuità operativa." data-en="&lt;strong&gt;15 years of hands-on experience&lt;/strong&gt; at Sorec s.r.l. (Lecce) as Business Intelligence Manager and Process Lead (November 2010 — April 2026). From the inside I built the entire BI infrastructure, dashboards adopted by management as a primary tool, and led two CRM migrations with full operational continuity.">15 anni di esperienza operativa come Business Intelligence Manager e Responsabile dei Processi (novembre 2010 — aprile 2026). Ho costruito dall'interno l'intera infrastruttura BI aziendale, dashboard adottate dal management come strumento primario, e portato a termine due migrazioni CRM con piena continuità operativa.</p>
+        <p data-i="Ho integrato Agentic AI per la consultazione dati in linguaggio naturale e coordinato oltre 90 risorse interne ed esterne. Adesso porto questa esperienza alle PMI come figura esterna — quella che dice la cosa giusta, senza far spendere più del necessario." data-en="I've integrated Agentic AI for natural-language data consultation and coordinated 90+ internal and external resources. I now bring this experience to SMEs as an external figure — the kind that says the right thing, without making you spend more than needed.">
+          Ho integrato Agentic AI per la consultazione dati in linguaggio naturale e coordinato oltre 90 risorse interne ed esterne. Adesso porto questa esperienza alle PMI come figura esterna — quella che dice la cosa giusta, senza far spendere più del necessario.
+        </p>
+        <p data-i="In fase di acquisizione della &lt;strong&gt;Certificazione Innovation Manager UNI 11814&lt;/strong&gt; — standard nazionale riconosciuto ACCREDIA, tramite Smarter Srl. Esame previsto luglio 2026." data-en="Currently acquiring the &lt;strong&gt;Innovation Manager UNI 11814 Certification&lt;/strong&gt; — national standard recognized by ACCREDIA, via Smarter Srl. Exam scheduled July 2026.">
+          In fase di acquisizione della <strong>Certificazione Innovation Manager UNI 11814</strong> — standard nazionale riconosciuto ACCREDIA, tramite Smarter Srl. Esame previsto luglio 2026.
+        </p>
+      </div>
+    </div>
+
+    <div class="stats-row reveal" data-delay="2">
+      <div class="micro" data-i="In numeri" data-en="In numbers">In numeri</div>
+      <div class="stat">
+        <div class="num">15</div>
+        <div class="label" data-i="Anni di operatività diretta in PMI" data-en="Years of direct operational work in SMEs">Anni di operatività diretta in PMI</div>
+      </div>
+      <div class="stat">
+        <div class="num">90+</div>
+        <div class="label" data-i="Risorse coordinate (interne + esterne)" data-en="Resources coordinated (internal + external)">Risorse coordinate (interne + esterne)</div>
+      </div>
+      <div class="stat">
+        <div class="num">2</div>
+        <div class="label" data-i="Migrazioni CRM con continuità operativa" data-en="CRM migrations with operational continuity">Migrazioni CRM con continuità operativa</div>
+      </div>
+      <div class="stat">
+        <div class="num">UNI</div>
+        <div class="label" data-i="Certificazione 11814 — ACCREDIA, in corso" data-en="11814 Certification — ACCREDIA, in progress">Certificazione 11814 — ACCREDIA, in corso</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLKIT ============ -->
+<section class="toolkit" id="toolkit" data-screen-label="06 Toolkit">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 04 / <span data-i="Strumenti" data-en="Toolkit">Strumenti</span></div>
+      <h2 class="display"><span data-i="Lo stack tecnico. Strumenti di mestiere, scelti perché funzionano." data-en="The tech stack. Tools of the trade, chosen because they work.">Lo stack <em>tecnico</em>. Strumenti di mestiere, scelti perché funzionano.</span></h2>
+    </div>
+    <div class="toolkit-grid">
+      <div class="micro" data-i="Mestiere" data-en="Craft">Mestiere</div>
+      <div class="toolkit-tags reveal">
+        <span class="featured">Microsoft Power BI</span>
+        <span class="featured">DAX & Power Query</span>
+        <span class="featured">Power Automate</span>
+        <span class="featured">Agentic AI · LLM</span>
+        <span>SQL Server</span>
+        <span>MySQL</span>
+        <span>ETL & Data Modeling</span>
+        <span>KPI Design</span>
+        <span>Dashboard Design</span>
+        <span>CRM Migration</span>
+        <span>Process Mapping</span>
+        <span>Innovation Assessment</span>
+        <span>Data Governance</span>
+        <span>Workshop Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TARGET ============ -->
+<section id="target" data-screen-label="07 Target">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 05 / <span data-i="A chi parlo" data-en="Audience">A chi parlo</span></div>
+      <h2 class="display"><span data-i="Quattro profili. Un linguaggio: chiaro, diretto, consulenziale." data-en="Four profiles. One language: clear, direct, consulting-grade.">Quattro <em>profili</em>. Un linguaggio: chiaro, diretto, consulenziale.</span></h2>
+    </div>
+
+    <div class="target-grid reveal">
+      <div class="target-card">
+        <span class="card-num">01</span>
+        <h3 data-i="PMI strutturate" data-en="Structured SMEs">PMI strutturate</h3>
+        <p data-i="Imprese che hanno già processi, dati e strumenti digitali, ma non li sfruttano pienamente. Cercano una figura capace di analizzare, progettare e accompagnare il cambiamento." data-en="Companies that already have processes, data and digital tools, but don't use them fully. They're looking for someone who can analyze, design and guide the change.">Imprese che hanno già processi, dati e strumenti digitali, ma non li sfruttano pienamente. Cercano una figura capace di analizzare, progettare e accompagnare il cambiamento.</p>
+      </div>
+      <div class="target-card">
+        <span class="card-num">02</span>
+        <h3 data-i="Imprenditori e manager" data-en="Owners and managers">Imprenditori e manager</h3>
+        <p data-i="Cercano una guida pratica per leggere meglio il proprio contesto, individuare priorità e decidere dove investire tempo e budget. Vogliono una persona, non un'agenzia." data-en="Looking for practical guidance to better read their context, identify priorities and decide where to invest time and budget. They want a person, not an agency.">Cercano una guida pratica per leggere meglio il proprio contesto, individuare priorità e decidere dove investire tempo e budget. Vogliono una persona, non un'agenzia.</p>
+      </div>
+      <div class="target-card">
+        <span class="card-num">03</span>
+        <h3 data-i="Aziende in trasformazione" data-en="Companies in transformation">Aziende in trasformazione</h3>
+        <p data-i="Vogliono dashboard, AI applicata, automazione, integrazione dati o nuovi modelli operativi. Il valore sta nella traduzione dell'innovazione in risultati misurabili." data-en="They want dashboards, applied AI, automation, data integration or new operational models. Value lies in translating innovation into measurable results.">Vogliono dashboard, AI applicata, automazione, integrazione dati o nuovi modelli operativi. Il valore sta nella traduzione dell'innovazione in risultati misurabili.</p>
+      </div>
+      <div class="target-card">
+        <span class="card-num">04</span>
+        <h3 data-i="Team da formare" data-en="Teams to train">Team da formare</h3>
+        <p data-i="Gruppi di lavoro, responsabili operativi e figure interne che devono acquisire competenze su dati, strumenti digitali, cultura del dato e uso pratico dell'AI." data-en="Workgroups, ops leads and internal figures who need to build skills on data, digital tools, data culture and practical AI use.">Gruppi di lavoro, responsabili operativi e figure interne che devono acquisire competenze su dati, strumenti digitali, cultura del dato e uso pratico dell'AI.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" data-screen-label="08 FAQ">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 06 / FAQ</div>
+      <h2 class="display"><span data-i="Domande che mi fanno spesso. Risposte come le darei in una call." data-en="Questions I get often. Answers as I'd give them on a call.">Domande che mi fanno <em>spesso</em>. Risposte come le darei in una call.</span></h2>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq">
+        <summary><span data-i="Perché un Innovation Manager esterno e non interno?" data-en="Why an external Innovation Manager rather than internal?">Perché un Innovation Manager esterno e non interno?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="Perché molte PMI non hanno il volume di lavoro per giustificare un assunto full-time, ma hanno bisogno di una figura competente. Esterno significa: niente politica interna, sguardo onesto, costo proporzionato al lavoro che serve davvero." data-en="Because many SMEs don't have the workload to justify a full-time hire, but do need a competent figure. External means: no internal politics, honest perspective, cost proportional to the work actually needed.">Perché molte PMI non hanno il volume di lavoro per giustificare un assunto full-time, ma hanno bisogno di una figura competente. Esterno significa: niente politica interna, sguardo onesto, costo proporzionato al lavoro che serve davvero.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="In quanto tempo si vedono risultati?" data-en="How long until I see results?">In quanto tempo si vedono risultati?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="Dipende dal punto di partenza. Una prima dashboard utile può arrivare in 4–8 settimane. L'automazione di un processo standard, in 6–12 settimane. Il check-up gratuito serve esattamente a capire le tempistiche realistiche per la tua azienda — non per venderti un piano." data-en="Depends on the starting point. A first useful dashboard can arrive in 4–8 weeks. Automation of a standard process, in 6–12 weeks. The free check-up is meant exactly to understand realistic timelines for your company — not to sell you a plan.">Dipende dal punto di partenza. Una prima dashboard utile può arrivare in 4–8 settimane. L'automazione di un processo standard, in 6–12 settimane. Il check-up gratuito serve esattamente a capire le tempistiche realistiche per la tua azienda — non per venderti un piano.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="Lavori solo in Puglia o anche fuori?" data-en="Do you only work in Apulia or also elsewhere?">Lavori solo in Puglia o anche fuori?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="Sede operativa Lecce, Puglia. In sede fisica per clienti pugliesi quando serve. In remoto per tutta Italia, con incontri on-site programmati nei momenti chiave del progetto." data-en="Operational base Lecce, Apulia. On-site for Apulian clients when needed. Fully remote across Italy, with on-site sessions scheduled at key project moments.">Sede operativa Lecce, Puglia. In sede fisica per clienti pugliesi quando serve. In remoto per tutta Italia, con incontri on-site programmati nei momenti chiave del progetto.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="Cosa succede nel check-up gratuito?" data-en="What happens in the free check-up?">Cosa succede nel check-up gratuito?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="Una conversazione di 45–60 minuti con l'imprenditore. Si parla del contesto aziendale, dei problemi reali, delle priorità. Esco con una sintesi onesta: se ha senso lavorare insieme, su cosa, con quale priorità. Se non ha senso, lo dico." data-en="A 45–60 minute conversation with the owner. We discuss the business context, real problems, priorities. I leave with an honest summary: whether it makes sense to work together, on what, with what priority. If it doesn't make sense, I'll say so.">Una conversazione di 45–60 minuti con l'imprenditore. Si parla del contesto aziendale, dei problemi reali, delle priorità. Esco con una sintesi onesta: se ha senso lavorare insieme, su cosa, con quale priorità. Se non ha senso, lo dico.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="Sostituisci il mio team IT?" data-en="Do you replace my IT team?">Sostituisci il mio team IT?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="No. Lavoro in collaborazione con i tecnici interni, non in opposizione. Il mio ruolo è ponte tra business e tecnologia: traduco le esigenze dell'imprenditore in soluzioni che il team IT può realizzare e mantenere." data-en="No. I work alongside internal tech people, not against them. My role is the bridge between business and technology: I translate the owner's needs into solutions the IT team can build and maintain.">No. Lavoro in collaborazione con i tecnici interni, non in opposizione. Il mio ruolo è ponte tra business e tecnologia: traduco le esigenze dell'imprenditore in soluzioni che il team IT può realizzare e mantenere.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="Come gestisci la riservatezza dei dati?" data-en="How do you handle data confidentiality?">Come gestisci la riservatezza dei dati?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="NDA firmato all'inizio di ogni progetto. Accessi minimi e tracciabili. I dati restano in casa del cliente — non transitano su sistemi terzi senza esplicita autorizzazione. È un'abitudine, non una clausola." data-en="NDA signed at the start of every project. Minimal, traceable access. Data stays on the client's systems — it does not pass through third-party platforms without explicit authorization. It's a habit, not a clause.">NDA firmato all'inizio di ogni progetto. Accessi minimi e tracciabili. I dati restano in casa del cliente — non transitano su sistemi terzi senza esplicita autorizzazione. È un'abitudine, non una clausola.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATTO ============ -->
+<section class="contact" id="contatto" data-screen-label="09 Contatto">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="num">— 07 / <span data-i="Contatto" data-en="Contact">Contatto</span></div>
+      <h2 class="display"><span data-i="Iniziamo da una conversazione. Senza impegno, senza vincoli." data-en="Let's start with a conversation. No commitment, no strings.">Iniziamo da una <em>conversazione</em>. Senza impegno, senza vincoli.</span></h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <p class="lede" data-i="Il primo passo è un check-up gratuito di 45–60 minuti. Si parla del contesto, dei problemi reali, delle priorità. Da lì, decidiamo se ha senso proseguire — e su cosa." data-en="The first step is a free 45–60 minute check-up. We discuss the context, the real problems, the priorities. From there, we decide if it makes sense to continue — and on what.">Il primo passo è un check-up gratuito di 45–60 minuti. Si parla del contesto, dei problemi reali, delle priorità. Da lì, decidiamo se ha senso proseguire — e su cosa.</p>
+
+        <div class="contact-info">
+          <div class="row">
+            <span class="label">Email</span>
+            <span class="value"><a href="mailto:sandro.vespucci@gmail.com">sandro.vespucci@gmail.com</a></span>
+          </div>
+          <div class="row">
+            <span class="label" data-i="Telefono" data-en="Phone">Telefono</span>
+            <span class="value"><a href="tel:+393495439164">+39 349 543 9164</a></span>
+          </div>
+          <div class="row">
+            <span class="label">LinkedIn</span>
+            <span class="value"><a href="https://linkedin.com/in/sandrovespucci" target="_blank" rel="noopener">linkedin.com/in/sandrovespucci</a></span>
+          </div>
+          <div class="row">
+            <span class="label" data-i="Sede" data-en="Base">Sede</span>
+            <span class="value" data-i="Lecce, Puglia · Operativo in tutta Italia" data-en="Lecce, Apulia · Operating across Italy">Lecce, Puglia · Operativo in tutta Italia</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" data-delay="1" id="contactForm" novalidate>
+        <div class="form-row split">
+          <div class="field">
+            <label for="f-name" data-i="Nome e cognome" data-en="Full name">Nome e cognome</label>
+            <input id="f-name" name="name" type="text" required data-i-ph="Mario Rossi" data-en-ph="John Doe" placeholder="Mario Rossi" />
+          </div>
+          <div class="field">
+            <label for="f-company" data-i="Azienda" data-en="Company">Azienda</label>
+            <input id="f-company" name="company" type="text" required data-i-ph="Es. Sorec s.r.l." data-en-ph="E.g. Acme Ltd." placeholder="Es. Sorec s.r.l." />
+          </div>
+        </div>
+        <div class="form-row split">
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" required placeholder="mario.rossi@azienda.it" />
+          </div>
+          <div class="field">
+            <label for="f-role" data-i="Ruolo" data-en="Role">Ruolo</label>
+            <input id="f-role" name="role" type="text" data-i-ph="Imprenditore / CEO / IT Manager" data-en-ph="Owner / CEO / IT Manager" placeholder="Imprenditore / CEO / IT Manager" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-interest" data-i="Su cosa vorresti parlare" data-en="What would you like to discuss">Su cosa vorresti parlare</label>
+            <select id="f-interest" name="interest">
+              <option value="checkup" data-i="Check-up gratuito" data-en="Free check-up">Check-up gratuito</option>
+              <option value="assessment" data-i="Valutazione Innovazione" data-en="Innovation Assessment">Valutazione Innovazione</option>
+              <option value="project" data-i="Progetto BI / AI / Automazione" data-en="BI / AI / Automation Project">Progetto BI / AI / Automazione</option>
+              <option value="external" data-i="Innovation Manager esterno (continuativo)" data-en="External Innovation Manager (ongoing)">Innovation Manager esterno (continuativo)</option>
+              <option value="training" data-i="Formazione team" data-en="Team training">Formazione team</option>
+              <option value="other" data-i="Altro" data-en="Other">Altro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-msg" data-i="Messaggio" data-en="Message">Messaggio</label>
+            <textarea id="f-msg" name="message" required data-i-ph="Raccontami brevemente il contesto e cosa stai cercando di risolvere." data-en-ph="Tell me briefly about the context and what you're trying to solve." placeholder="Raccontami brevemente il contesto e cosa stai cercando di risolvere."></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <label class="form-consent">
+            <input type="checkbox" required />
+            <span data-i="Acconsento al trattamento dei dati personali ai sensi del GDPR per essere ricontattato. I dati non verranno condivisi con terzi." data-en="I consent to the processing of my personal data under GDPR to be contacted. Data will not be shared with third parties.">Acconsento al trattamento dei dati personali ai sensi del GDPR per essere ricontattato. I dati non verranno condivisi con terzi.</span>
+          </label>
+          <button type="submit" class="btn-primary">
+            <span data-i="Invia richiesta" data-en="Send request">Invia richiesta</span>
+            <span class="arrow"></span>
+          </button>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="icon">✓</div>
+          <h3 data-i="Messaggio inviato." data-en="Message sent.">Messaggio inviato.</h3>
+          <p data-i="Ti rispondo entro 24h lavorative con una proposta di slot per la call." data-en="I'll get back to you within 24 working hours with a slot proposal for the call.">Ti rispondo entro 24h lavorative con una proposta di slot per la call.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container" style="padding: 0;">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-mark"><span>I</span><span class="apos">'</span><span>m</span><span class="small">The Innovation Manager</span></div>
+        <p data-i="Sandro Vespucci · Innovation Manager esterno per PMI. Trasformo dati, processi e innovazione in risultati concreti attraverso consulenza, progettazione e formazione." data-en="Sandro Vespucci · External Innovation Manager for SMEs. I turn data, processes and innovation into concrete results through consulting, design and training.">Sandro Vespucci · Innovation Manager esterno per PMI. Trasformo dati, processi e innovazione in risultati concreti attraverso consulenza, progettazione e formazione.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i="Naviga" data-en="Navigate">Naviga</h4>
+        <ul>
+          <li><a href="#servizi" data-i="Servizi" data-en="Services">Servizi</a></li>
+          <li><a href="#metodo" data-i="Metodo" data-en="Method">Metodo</a></li>
+          <li><a href="#chi-sono" data-i="Chi sono" data-en="About">Chi sono</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i="Contatto" data-en="Contact">Contatto</h4>
+        <ul>
+          <li><a href="mailto:sandro.vespucci@gmail.com">sandro.vespucci@gmail.com</a></li>
+          <li><a href="tel:+393495439164">+39 349 543 9164</a></li>
+          <li><a href="https://linkedin.com/in/sandrovespucci" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i="Sede" data-en="Base">Sede</h4>
+        <ul>
+          <li data-i="Lecce, Puglia" data-en="Lecce, Italy">Lecce, Puglia</li>
+          <li data-i="Operativo in tutta Italia" data-en="Operating across Italy">Operativo in tutta Italia</li>
+          <li data-i="Cert. UNI 11814 (in corso)" data-en="Cert. UNI 11814 (in progress)">Cert. UNI 11814 (in corso)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 The Innovation Manager · Sandro Vespucci</span>
+      <span data-i="P.IVA in attivazione · Lecce, Italia" data-en="VAT in activation · Lecce, Italy">P.IVA in attivazione · Lecce, Italia</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ===================== LANGUAGE =====================
+  const langButtons = document.querySelectorAll('.lang-btn');
+  let currentLang = localStorage.getItem('theim-lang') || 'it';
+
+  function applyLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang === 'it' ? 'it' : 'en';
+    document.querySelectorAll('[data-i]').forEach(el => {
+      const it = el.getAttribute('data-i');
+      const en = el.getAttribute('data-en') || it;
+      el.innerHTML = lang === 'it' ? it : en;
+    });
+    document.querySelectorAll('[data-i-ph]').forEach(el => {
+      const it = el.getAttribute('data-i-ph');
+      const en = el.getAttribute('data-en-ph') || it;
+      el.placeholder = lang === 'it' ? it : en;
+    });
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    localStorage.setItem('theim-lang', lang);
+  }
+  langButtons.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+  applyLang(currentLang);
+
+  // ===================== NAV SCROLL =====================
+  const nav = document.getElementById('topNav');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+
+    // Side scroll indicator active state
+    const sections = document.querySelectorAll('section[id]');
+    let active = null;
+    const offset = window.innerHeight * 0.4;
+    sections.forEach(s => {
+      const r = s.getBoundingClientRect();
+      if (r.top <= offset && r.bottom > offset) active = s.id;
+    });
+    document.querySelectorAll('.scrollindicator a').forEach(a => {
+      a.classList.toggle('active', a.dataset.target === active);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // ===================== MOBILE MENU =====================
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger?.addEventListener('click', () => {
+    document.body.classList.toggle('menu-open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => document.body.classList.remove('menu-open'))
+  );
+
+  // ===================== METHOD TABS =====================
+  const tabs = document.querySelectorAll('.method-tab');
+  const panels = document.querySelectorAll('.method-panel');
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      const idx = t.dataset.tab;
+      tabs.forEach(x => x.classList.toggle('active', x.dataset.tab === idx));
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === idx));
+    });
+  });
+
+  // ===================== SERVICES — only one open at a time =====================
+  const services = document.querySelectorAll('.service');
+  services.forEach(s => {
+    s.addEventListener('toggle', () => {
+      if (s.open) services.forEach(o => { if (o !== s) o.open = false; });
+    });
+  });
+
+  // ===================== REVEAL ON SCROLL =====================
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ===================== TICKER DUPLICATE FOR LOOP =====================
+  const ticker = document.getElementById('tickerTrack');
+  if (ticker) ticker.innerHTML += ticker.innerHTML;
+
+  // ===================== CONTACT FORM =====================
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    Array.from(form.elements).forEach(el => { if (el !== success) el.disabled = true; });
+    setTimeout(() => {
+      success.classList.add('visible');
+      form.style.opacity = '0.6';
+    }, 300);
+  });
+
+  // ===================== HERO PARALLAX (subtle) =====================
+  const heroH1 = document.querySelector('.hero h1');
+  if (heroH1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let target = 0, current = 0;
+    window.addEventListener('scroll', () => {
+      target = Math.min(window.scrollY * 0.15, 80);
+    }, { passive: true });
+    function tick() {
+      current += (target - current) * 0.08;
+      heroH1.style.transform = 'translateY(' + (-current) + 'px)';
+      requestAnimationFrame(tick);
+    }
+    tick();
+  }
+})();
+</script>
+</body>
+</html>
