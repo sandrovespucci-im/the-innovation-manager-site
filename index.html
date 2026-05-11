@@ -1207,6 +1207,16 @@
   .form-error.visible { display: block; animation: fadeUp 0.4s ease; }
   .form-error p { color: var(--cream); font-size: 13px; line-height: 1.6; }
   .form-error a { color: var(--gold); text-decoration: underline; }
+  .form-error-detail {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(200, 75, 58, 0.4);
+    font-size: 11px !important;
+    color: var(--muted) !important;
+    font-family: var(--mono);
+    word-break: break-word;
+  }
+  .form-error-detail:empty { display: none; }
 
   @media (max-width: 880px) {
     .contact-grid { grid-template-columns: 1fr; }
@@ -1886,6 +1896,7 @@ dopo aver deciso.</div>
 
         <div class="form-error" id="formError" role="alert">
           <p data-i="Qualcosa è andato storto. Riprova oppure scrivimi direttamente a &lt;a href=&quot;mailto:sandro.vespucci@gmail.com&quot;&gt;sandro.vespucci@gmail.com&lt;/a&gt;." data-en="Something went wrong. Please try again or email me at &lt;a href=&quot;mailto:sandro.vespucci@gmail.com&quot;&gt;sandro.vespucci@gmail.com&lt;/a&gt;.">Qualcosa è andato storto. Riprova oppure scrivimi direttamente a <a href="mailto:sandro.vespucci@gmail.com">sandro.vespucci@gmail.com</a>.</p>
+          <p class="form-error-detail"></p>
         </div>
       </form>
     </div>
@@ -2065,21 +2076,25 @@ dopo aver deciso.</div>
         headers: { 'Accept': 'application/json' }
       });
       const data = await res.json().catch(() => ({}));
+      console.log('[Web3Forms] status:', res.status, 'response:', data);
       if (res.ok && data.success) {
         success.classList.add('visible');
         form.style.opacity = '0.6';
       } else {
-        throw new Error(data.message || 'Submit failed');
+        throw new Error('HTTP ' + res.status + ' — ' + (data.message || 'no message') + ' (success=' + data.success + ')');
       }
     } catch (err) {
       Array.from(form.elements).forEach(el => { el.disabled = false; });
       if (submitBtn && submitBtn.dataset.originalLabel) {
         submitBtn.querySelector('span:first-child').textContent = submitBtn.dataset.originalLabel;
       }
-      if (errorBox) errorBox.classList.add('visible');
-      else alert(currentLang === 'it'
-        ? 'Si è verificato un errore. Riprova o scrivimi a sandro.vespucci@gmail.com'
-        : 'Something went wrong. Please try again or email sandro.vespucci@gmail.com');
+      if (errorBox) {
+        const detail = errorBox.querySelector('.form-error-detail');
+        if (detail) detail.textContent = err.message || String(err);
+        errorBox.classList.add('visible');
+      } else {
+        alert((currentLang === 'it' ? 'Errore: ' : 'Error: ') + (err.message || String(err)));
+      }
     }
   });
 
