@@ -2063,13 +2063,14 @@ dopo aver deciso.</div>
       return;
     }
     const submitBtn = form.querySelector('button[type="submit"]');
+    // IMPORTANT: build FormData BEFORE disabling fields — disabled inputs are skipped by FormData
+    const formData = new FormData(form);
     Array.from(form.elements).forEach(el => { el.disabled = true; });
     if (submitBtn) {
       submitBtn.dataset.originalLabel = submitBtn.querySelector('span:first-child').textContent;
       submitBtn.querySelector('span:first-child').textContent = currentLang === 'it' ? 'Invio in corso…' : 'Sending…';
     }
     try {
-      const formData = new FormData(form);
       const res = await fetch(form.action, {
         method: 'POST',
         body: formData,
