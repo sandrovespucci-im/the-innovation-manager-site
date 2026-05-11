@@ -3,8 +3,78 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>The Innovation Manager — Sandro Vespucci</title>
-<meta name="description" content="Innovation Manager esterno per PMI. Trasformo dati, processi e innovazione in risultati concreti. Lecce, Puglia." />
+<meta name="theme-color" content="#1C1E2A" />
+
+<title>Innovation Manager esterno per PMI · Lecce · Sandro Vespucci</title>
+<meta name="description" content="Sandro Vespucci — Innovation Manager esterno per PMI. Business Intelligence, AI applicata, automazione e formazione. Sede a Lecce, operativo in tutta Italia. Check-up gratuito." />
+<meta name="author" content="Sandro Vespucci" />
+<meta name="robots" content="index, follow" />
+
+<link rel="canonical" href="https://www.theim.it/" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="The Innovation Manager" />
+<meta property="og:title" content="Innovation Manager esterno per PMI · Sandro Vespucci" />
+<meta property="og:description" content="Trasformo dati, processi e innovazione in risultati concreti. BI, AI, automazione, formazione. Lecce, Puglia." />
+<meta property="og:url" content="https://www.theim.it/" />
+<meta property="og:image" content="https://www.theim.it/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:locale:alternate" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Innovation Manager esterno per PMI · Sandro Vespucci" />
+<meta name="twitter:description" content="BI, AI, automazione, formazione. Lecce, operativo in tutta Italia." />
+<meta name="twitter:image" content="https://www.theim.it/og.png" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.theim.it/#sandro",
+      "name": "Sandro Vespucci",
+      "jobTitle": "Innovation Manager",
+      "url": "https://www.theim.it/",
+      "email": "sandro.vespucci@gmail.com",
+      "telephone": "+39 349 543 9164",
+      "sameAs": ["https://www.linkedin.com/in/sandrovespucci"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lecce",
+        "addressRegion": "Puglia",
+        "addressCountry": "IT"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.theim.it/#org",
+      "name": "The Innovation Manager",
+      "url": "https://www.theim.it/",
+      "founder": {"@id": "https://www.theim.it/#sandro"},
+      "areaServed": {"@type": "Country", "name": "Italia"},
+      "description": "Innovation Manager esterno per PMI: Business Intelligence, AI applicata, automazione, formazione. Metodo Decisione → Azione.",
+      "serviceType": ["Business Intelligence", "Data Analytics", "AI Applicata", "Automazione di Processo", "Innovation Assessment", "Formazione aziendale"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.theim.it/#website",
+      "url": "https://www.theim.it/",
+      "name": "The Innovation Manager",
+      "inLanguage": ["it-IT", "en-US"],
+      "publisher": {"@id": "https://www.theim.it/#sandro"}
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
@@ -553,6 +623,8 @@
     font-size: clamp(26px, 3.4vw, 44px);
     color: var(--cream);
     line-height: 1.1;
+    margin: 0;
+    font-weight: 400;
     transition: color 0.3s ease;
   }
   .service-toggle {
@@ -1091,6 +1163,8 @@
     cursor: pointer;
   }
   .form-consent input { margin-top: 2px; accent-color: var(--gold); }
+  .form-consent a { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(200, 169, 106, 0.4); }
+  .form-consent a:hover { text-decoration-color: var(--gold); }
   .form-actions .btn-primary { align-self: flex-start; cursor: pointer; }
 
   .form-success {
@@ -1122,6 +1196,17 @@
     margin-bottom: 12px;
   }
   .form-success p { color: var(--light-muted); font-size: 14px; }
+
+  .form-error {
+    display: none;
+    padding: 20px 24px;
+    border: 1px solid #C84B3A;
+    background: rgba(200, 75, 58, 0.08);
+    margin-top: 16px;
+  }
+  .form-error.visible { display: block; animation: fadeUp 0.4s ease; }
+  .form-error p { color: var(--cream); font-size: 13px; line-height: 1.6; }
+  .form-error a { color: var(--gold); text-decoration: underline; }
 
   @media (max-width: 880px) {
     .contact-grid { grid-template-columns: 1fr; }
@@ -1230,39 +1315,45 @@
     <span class="small" data-i="The Innovation Manager" data-en="The Innovation Manager">The Innovation Manager</span>
   </a>
   <div class="nav-links">
+    <a href="#manifesto"><span class="num">00</span><span data-i="Manifesto" data-en="Manifesto">Manifesto</span></a>
     <a href="#servizi"><span class="num">01</span><span data-i="Servizi" data-en="Services">Servizi</span></a>
     <a href="#metodo"><span class="num">02</span><span data-i="Metodo" data-en="Method">Metodo</span></a>
     <a href="#chi-sono"><span class="num">03</span><span data-i="Chi sono" data-en="About">Chi sono</span></a>
-    <a href="#target"><span class="num">04</span><span data-i="Target" data-en="Audience">Target</span></a>
-    <a href="#faq"><span class="num">05</span><span data-i="FAQ" data-en="FAQ">FAQ</span></a>
+    <a href="#toolkit"><span class="num">04</span><span data-i="Strumenti" data-en="Toolkit">Strumenti</span></a>
+    <a href="#target"><span class="num">05</span><span data-i="Target" data-en="Audience">Target</span></a>
+    <a href="#faq"><span class="num">06</span><span data-i="FAQ" data-en="FAQ">FAQ</span></a>
   </div>
   <div class="nav-right">
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="it">IT</button>
-      <span class="sep">/</span>
-      <button class="lang-btn" data-lang="en">EN</button>
+    <div class="lang-toggle" role="group" aria-label="Lingua">
+      <button class="lang-btn active" data-lang="it" aria-pressed="true" aria-label="Italiano">IT</button>
+      <span class="sep" aria-hidden="true">/</span>
+      <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
     </div>
     <a href="#contatto" class="nav-cta" data-i="Check-up gratuito" data-en="Free check-up">Check-up gratuito</a>
-    <button class="nav-burger" id="burger" aria-label="Menu">
+    <button class="nav-burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#servizi" data-i="Servizi" data-en="Services"><span data-i="Servizi" data-en="Services">Servizi</span><span class="num">01</span></a>
+  <a href="#manifesto"><span data-i="Manifesto" data-en="Manifesto">Manifesto</span><span class="num">00</span></a>
+  <a href="#servizi"><span data-i="Servizi" data-en="Services">Servizi</span><span class="num">01</span></a>
   <a href="#metodo"><span data-i="Metodo" data-en="Method">Metodo</span><span class="num">02</span></a>
   <a href="#chi-sono"><span data-i="Chi sono" data-en="About">Chi sono</span><span class="num">03</span></a>
-  <a href="#target"><span data-i="Target" data-en="Audience">Target</span><span class="num">04</span></a>
-  <a href="#faq"><span data-i="FAQ" data-en="FAQ">FAQ</span><span class="num">05</span></a>
-  <a href="#contatto"><span data-i="Contatto" data-en="Contact">Contatto</span><span class="num">06</span></a>
+  <a href="#toolkit"><span data-i="Strumenti" data-en="Toolkit">Strumenti</span><span class="num">04</span></a>
+  <a href="#target"><span data-i="Target" data-en="Audience">Target</span><span class="num">05</span></a>
+  <a href="#faq"><span data-i="FAQ" data-en="FAQ">FAQ</span><span class="num">06</span></a>
+  <a href="#contatto"><span data-i="Contatto" data-en="Contact">Contatto</span><span class="num">07</span></a>
 </div>
 
 <aside class="scrollindicator" aria-hidden="true">
   <a href="#hero" data-target="hero" class="active"></a>
+  <a href="#manifesto" data-target="manifesto"></a>
   <a href="#servizi" data-target="servizi"></a>
   <a href="#metodo" data-target="metodo"></a>
   <a href="#chi-sono" data-target="chi-sono"></a>
+  <a href="#toolkit" data-target="toolkit"></a>
   <a href="#target" data-target="target"></a>
   <a href="#faq" data-target="faq"></a>
   <a href="#contatto" data-target="contatto"></a>
@@ -1296,7 +1387,7 @@
 
     <div class="hero-bottom">
       <div></div>
-      <div class="hero-claim" data-i="Il vantaggio competitivo non è decidere. È quanto velocemente riesci ad &lt;em&gt;agire&lt;/em&gt; dopo aver deciso." data-en="Competitive advantage isn't deciding. It's how fast you &lt;em&gt;act&lt;/em&gt; after you decide." style="width: 370px">Il vantaggio competitivo non è decidere. 
+      <div class="hero-claim" data-i="Il vantaggio competitivo non è decidere. È quanto velocemente riesci ad &lt;em&gt;agire&lt;/em&gt; dopo aver deciso." data-en="Competitive advantage isn't deciding. It's how fast you &lt;em&gt;act&lt;/em&gt; after you decide.">Il vantaggio competitivo non è decidere. 
 È quanto velocemente riesci ad agire 
 dopo aver deciso.</div>
       <div class="hero-actions">
@@ -1374,7 +1465,7 @@ dopo aver deciso.</div>
       <details class="service" open>
         <summary>
           <span class="service-num">01</span>
-          <span class="service-title" data-i="Check-up Iniziale" data-en="Initial Check-up">Check-up Iniziale</span>
+          <h3 class="service-title" data-i="Check-up Iniziale" data-en="Initial Check-up">Check-up Iniziale</h3>
           <span class="service-toggle"></span>
         </summary>
         <div class="service-body">
@@ -1391,7 +1482,7 @@ dopo aver deciso.</div>
       <details class="service">
         <summary>
           <span class="service-num">02</span>
-          <span class="service-title" data-i="Valutazione Innovazione" data-en="Innovation Assessment">Valutazione Innovazione</span>
+          <h3 class="service-title" data-i="Valutazione Innovazione" data-en="Innovation Assessment">Valutazione Innovazione</h3>
           <span class="service-toggle"></span>
         </summary>
         <div class="service-body">
@@ -1410,7 +1501,7 @@ dopo aver deciso.</div>
       <details class="service">
         <summary>
           <span class="service-num">03</span>
-          <span class="service-title" data-i="Progetto Innovazione" data-en="Innovation Project">Progetto Innovazione</span>
+          <h3 class="service-title" data-i="Progetto Innovazione" data-en="Innovation Project">Progetto Innovazione</h3>
           <span class="service-toggle"></span>
         </summary>
         <div class="service-body">
@@ -1429,7 +1520,7 @@ dopo aver deciso.</div>
       <details class="service">
         <summary>
           <span class="service-num">04</span>
-          <span class="service-title" data-i="Innovation Manager Esterno" data-en="External Innovation Manager">Innovation Manager Esterno</span>
+          <h3 class="service-title" data-i="Innovation Manager Esterno" data-en="External Innovation Manager">Innovation Manager Esterno</h3>
           <span class="service-toggle"></span>
         </summary>
         <div class="service-body">
@@ -1448,7 +1539,7 @@ dopo aver deciso.</div>
       <details class="service">
         <summary>
           <span class="service-num">05</span>
-          <span class="service-title" data-i="Formazione" data-en="Training">Formazione</span>
+          <h3 class="service-title" data-i="Formazione" data-en="Training">Formazione</h3>
           <span class="service-toggle"></span>
         </summary>
         <div class="service-body">
@@ -1477,26 +1568,26 @@ dopo aver deciso.</div>
 
     <div class="method-tabs">
       <div class="method-tabs-list" role="tablist">
-        <button class="method-tab active" data-tab="0" role="tab">
+        <button class="method-tab active" data-tab="0" role="tab" aria-selected="true" aria-controls="method-panel-0" id="method-tab-0">
           <span class="tab-num">01</span>
           <span class="tab-name" data-i="Analisi" data-en="Analysis">Analisi</span>
         </button>
-        <button class="method-tab" data-tab="1" role="tab">
+        <button class="method-tab" data-tab="1" role="tab" aria-selected="false" aria-controls="method-panel-1" id="method-tab-1">
           <span class="tab-num">02</span>
           <span class="tab-name" data-i="Base dati" data-en="Data foundation">Base dati</span>
         </button>
-        <button class="method-tab" data-tab="2" role="tab">
+        <button class="method-tab" data-tab="2" role="tab" aria-selected="false" aria-controls="method-panel-2" id="method-tab-2">
           <span class="tab-num">03</span>
           <span class="tab-name" data-i="Dashboard" data-en="Dashboards">Dashboard</span>
         </button>
-        <button class="method-tab" data-tab="3" role="tab">
+        <button class="method-tab" data-tab="3" role="tab" aria-selected="false" aria-controls="method-panel-3" id="method-tab-3">
           <span class="tab-num">04</span>
           <span class="tab-name" data-i="Automazione" data-en="Automation">Automazione</span>
         </button>
       </div>
 
       <div class="method-panels">
-        <div class="method-panel active" data-panel="0">
+        <div class="method-panel active" data-panel="0" role="tabpanel" id="method-panel-0" aria-labelledby="method-tab-0">
           <div class="panel-eyebrow" data-i="Fase 01 · Capire" data-en="Phase 01 · Understand">Fase 01 · Capire</div>
           <h3><span data-i="Capire come funziona davvero l'azienda." data-en="Understand how the company really works." style="font-family: &quot;Times New Roman&quot;">Capire come funziona <em>davvero</em> l'azienda.</span></h3>
           <p class="body" data-i="Processi, persone, dati. Mappiamo il flusso di lavoro così com'è — non come dovrebbe essere sulla carta. Si parla con chi fa il lavoro ogni giorno, si guardano i dati esistenti, si individuano i punti di rottura. Niente PowerPoint pre-confezionati." data-en="Processes, people, data. We map the workflow as it is — not how it should be on paper. We talk to those doing the work every day, look at existing data, identify the friction points. No pre-packaged PowerPoints.">Processi, persone, dati. Mappiamo il flusso di lavoro così com'è — non come dovrebbe essere sulla carta. Si parla con chi fa il lavoro ogni giorno, si guardano i dati esistenti, si individuano i punti di rottura. Niente PowerPoint pre-confezionati.</p>
@@ -1507,7 +1598,7 @@ dopo aver deciso.</div>
           </div>
         </div>
 
-        <div class="method-panel" data-panel="1">
+        <div class="method-panel" data-panel="1" role="tabpanel" id="method-panel-1" aria-labelledby="method-tab-1">
           <div class="panel-eyebrow" data-i="Fase 02 · Organizzare" data-en="Phase 02 · Organize">Fase 02 · Organizzare</div>
           <h3><span data-i="Organizzare le fondamenta informative." data-en="Organize the informational foundations.">Organizzare le <em>fondamenta</em> informative.</span></h3>
           <p class="body" data-i="Una base dati solida è la condizione, non l'optional. Strutture, modelli, integrazioni, qualità del dato. Senza questo, ogni dashboard è un castello di carta. Si lavora su SQL Server, MySQL, ETL, modellazione — tutto pensato per durare oltre il progetto." data-en="A solid data foundation is the prerequisite, not an extra. Structures, models, integrations, data quality. Without it, every dashboard is a house of cards. We work on SQL Server, MySQL, ETL, modeling — designed to last beyond the project.">Una base dati solida è la condizione, non l'optional. Strutture, modelli, integrazioni, qualità del dato. Senza questo, ogni dashboard è un castello di carta. Si lavora su SQL Server, MySQL, ETL, modellazione — tutto pensato per durare oltre il progetto.</p>
@@ -1518,7 +1609,7 @@ dopo aver deciso.</div>
           </div>
         </div>
 
-        <div class="method-panel" data-panel="2">
+        <div class="method-panel" data-panel="2" role="tabpanel" id="method-panel-2" aria-labelledby="method-tab-2">
           <div class="panel-eyebrow" data-i="Fase 03 · Decidere" data-en="Phase 03 · Decide">Fase 03 · Decidere</div>
           <h3><span data-i="Trasformare i dati in strumenti decisionali." data-en="Turn data into decision-making tools.">Trasformare i dati in <em>strumenti</em> decisionali.</span></h3>
           <p class="body" data-i="Dashboard, KPI, report che il management consulta davvero. Costruite con Power BI, DAX, Power Query — ma il vero progetto sta nel definire cosa serve sapere e cosa è solo rumore. La differenza tra un report e una dashboard è una sola: la dashboard fa decidere." data-en="Dashboards, KPIs, reports the management actually uses. Built with Power BI, DAX, Power Query — but the real project is defining what needs to be known and what is just noise. The difference between a report and a dashboard is one: the dashboard drives decisions.">Dashboard, KPI, report che il management consulta davvero. Costruite con Power BI, DAX, Power Query — ma il vero progetto sta nel definire cosa serve sapere e cosa è solo rumore. La differenza tra un report e una dashboard è una sola: la dashboard fa decidere.</p>
@@ -1529,7 +1620,7 @@ dopo aver deciso.</div>
           </div>
         </div>
 
-        <div class="method-panel" data-panel="3">
+        <div class="method-panel" data-panel="3" role="tabpanel" id="method-panel-3" aria-labelledby="method-tab-3">
           <div class="panel-eyebrow" data-i="Fase 04 · Liberare" data-en="Phase 04 · Free up">Fase 04 · Liberare</div>
           <h3><span data-i="Eliminare i processi lunghi e ripetitivi." data-en="Eliminate the long, repetitive processes.">Eliminare i processi <em>lunghi</em> e ripetitivi.</span></h3>
           <p class="body" data-i="Dove la persona è solo un esecutore di task ripetitivi, c'è spreco. Power Automate, Agentic AI, integrazioni: si automatizza ciò che non richiede giudizio umano. Le persone tornano a fare il lavoro per cui sono state assunte — quello che richiede testa, non clic." data-en="Where a person is just a repetitive task executor, there is waste. Power Automate, Agentic AI, integrations: we automate what doesn't require human judgment. People go back to doing the work they were hired for — the kind that needs a brain, not clicks.">Dove la persona è solo un esecutore di task ripetitivi, c'è spreco. Power Automate, Agentic AI, integrazioni: si automatizza ciò che non richiede giudizio umano. Le persone tornano a fare il lavoro per cui sono state assunte — quello che richiede testa, non clic.</p>
@@ -1549,7 +1640,7 @@ dopo aver deciso.</div>
   <div class="container">
     <div class="section-head reveal">
       <div class="num">— 03 / <span data-i="Chi sono" data-en="About">Chi sono</span></div>
-      <h2 class="display"><span data-i="Sandro Vespucci. Quindici anni dentro un'azienda, prima di parlare di consulenza." data-en="Sandro Vespucci. Fifteen years inside a company, before talking about consulting.">Quindici anni dentro un'azienda, prima di parlare di consulenza.</span></h2>
+      <h2 class="display"><span data-i="Quindici anni dentro un'azienda, prima di parlare di consulenza." data-en="Fifteen years inside a company, before talking about consulting.">Quindici anni dentro un'azienda, prima di parlare di consulenza.</span></h2>
     </div>
 
     <div class="about-grid">
@@ -1565,7 +1656,7 @@ dopo aver deciso.</div>
         </div>
       </div>
       <div class="about-text reveal" data-delay="1">
-        <p data-i="&lt;strong&gt;15 anni di esperienza operativa&lt;/strong&gt; in Sorec s.r.l. (Lecce) come Business Intelligence Manager e Responsabile dei Processi (novembre 2010 — aprile 2026). Ho costruito dall'interno l'intera infrastruttura BI aziendale, dashboard adottate dal management come strumento primario, e portato a termine due migrazioni CRM con piena continuità operativa." data-en="&lt;strong&gt;15 years of hands-on experience&lt;/strong&gt; at Sorec s.r.l. (Lecce) as Business Intelligence Manager and Process Lead (November 2010 — April 2026). From the inside I built the entire BI infrastructure, dashboards adopted by management as a primary tool, and led two CRM migrations with full operational continuity.">15 anni di esperienza operativa come Business Intelligence Manager e Responsabile dei Processi (novembre 2010 — aprile 2026). Ho costruito dall'interno l'intera infrastruttura BI aziendale, dashboard adottate dal management come strumento primario, e portato a termine due migrazioni CRM con piena continuità operativa.</p>
+        <p data-i="&lt;strong&gt;15 anni di esperienza operativa&lt;/strong&gt; come Business Intelligence Manager e Responsabile dei Processi (novembre 2010 — aprile 2026). Ho costruito dall'interno l'intera infrastruttura BI aziendale, dashboard adottate dal management come strumento primario, e portato a termine due migrazioni CRM con piena continuità operativa." data-en="&lt;strong&gt;15 years of hands-on experience&lt;/strong&gt; as Business Intelligence Manager and Process Lead (November 2010 — April 2026). From the inside I built the entire BI infrastructure, dashboards adopted by management as a primary tool, and led two CRM migrations with full operational continuity.">15 anni di esperienza operativa come Business Intelligence Manager e Responsabile dei Processi (novembre 2010 — aprile 2026). Ho costruito dall'interno l'intera infrastruttura BI aziendale, dashboard adottate dal management come strumento primario, e portato a termine due migrazioni CRM con piena continuità operativa.</p>
         <p data-i="Ho integrato Agentic AI per la consultazione dati in linguaggio naturale e coordinato oltre 90 risorse interne ed esterne. Adesso porto questa esperienza alle PMI come figura esterna — quella che dice la cosa giusta, senza far spendere più del necessario." data-en="I've integrated Agentic AI for natural-language data consultation and coordinated 90+ internal and external resources. I now bring this experience to SMEs as an external figure — the kind that says the right thing, without making you spend more than needed.">
           Ho integrato Agentic AI per la consultazione dati in linguaggio naturale e coordinato oltre 90 risorse interne ed esterne. Adesso porto questa esperienza alle PMI come figura esterna — quella che dice la cosa giusta, senza far spendere più del necessario.
         </p>
@@ -1728,7 +1819,15 @@ dopo aver deciso.</div>
         </div>
       </div>
 
-      <form class="contact-form reveal" data-delay="1" id="contactForm" novalidate>
+      <form class="contact-form reveal" data-delay="1" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <!-- Web3Forms config -->
+        <input type="hidden" name="access_key" value="a1c74f85-dd76-4b5b-bc86-093c167f70d4" />
+        <input type="hidden" name="subject" value="Nuovo check-up dal sito · The Innovation Manager" />
+        <input type="hidden" name="from_name" value="The Innovation Manager — sito" />
+        <input type="hidden" name="redirect" value="false" />
+        <!-- Honeypot (lasciare vuoto) -->
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+
         <div class="form-row split">
           <div class="field">
             <label for="f-name" data-i="Nome e cognome" data-en="Full name">Nome e cognome</label>
@@ -1736,7 +1835,7 @@ dopo aver deciso.</div>
           </div>
           <div class="field">
             <label for="f-company" data-i="Azienda" data-en="Company">Azienda</label>
-            <input id="f-company" name="company" type="text" required data-i-ph="Es. Sorec s.r.l." data-en-ph="E.g. Acme Ltd." placeholder="Es. Sorec s.r.l." />
+            <input id="f-company" name="company" type="text" required data-i-ph="Es. Gamma Italia s.r.l." data-en-ph="E.g. Gamma Italia s.r.l." placeholder="Es. Gamma Italia s.r.l." />
           </div>
         </div>
         <div class="form-row split">
@@ -1770,8 +1869,8 @@ dopo aver deciso.</div>
         </div>
         <div class="form-actions">
           <label class="form-consent">
-            <input type="checkbox" required />
-            <span data-i="Acconsento al trattamento dei dati personali ai sensi del GDPR per essere ricontattato. I dati non verranno condivisi con terzi." data-en="I consent to the processing of my personal data under GDPR to be contacted. Data will not be shared with third parties.">Acconsento al trattamento dei dati personali ai sensi del GDPR per essere ricontattato. I dati non verranno condivisi con terzi.</span>
+            <input type="checkbox" name="consent" required />
+            <span data-i="Acconsento al trattamento dei dati personali ai sensi del GDPR per essere ricontattato. Vedi &lt;a href=&quot;/privacy.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;informativa privacy&lt;/a&gt;." data-en="I consent to the processing of my personal data under GDPR to be contacted. See &lt;a href=&quot;/privacy.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;privacy notice&lt;/a&gt;.">Acconsento al trattamento dei dati personali ai sensi del GDPR per essere ricontattato. Vedi <a href="/privacy.html" target="_blank" rel="noopener">informativa privacy</a>.</span>
           </label>
           <button type="submit" class="btn-primary">
             <span data-i="Invia richiesta" data-en="Send request">Invia richiesta</span>
@@ -1783,6 +1882,10 @@ dopo aver deciso.</div>
           <div class="icon">✓</div>
           <h3 data-i="Messaggio inviato." data-en="Message sent.">Messaggio inviato.</h3>
           <p data-i="Ti rispondo entro 24h lavorative con una proposta di slot per la call." data-en="I'll get back to you within 24 working hours with a slot proposal for the call.">Ti rispondo entro 24h lavorative con una proposta di slot per la call.</p>
+        </div>
+
+        <div class="form-error" id="formError" role="alert">
+          <p data-i="Qualcosa è andato storto. Riprova oppure scrivimi direttamente a &lt;a href=&quot;mailto:sandro.vespucci@gmail.com&quot;&gt;sandro.vespucci@gmail.com&lt;/a&gt;." data-en="Something went wrong. Please try again or email me at &lt;a href=&quot;mailto:sandro.vespucci@gmail.com&quot;&gt;sandro.vespucci@gmail.com&lt;/a&gt;.">Qualcosa è andato storto. Riprova oppure scrivimi direttamente a <a href="mailto:sandro.vespucci@gmail.com">sandro.vespucci@gmail.com</a>.</p>
         </div>
       </form>
     </div>
@@ -1825,7 +1928,7 @@ dopo aver deciso.</div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 The Innovation Manager · Sandro Vespucci</span>
-      <span data-i="P.IVA in attivazione · Lecce, Italia" data-en="VAT in activation · Lecce, Italy">P.IVA in attivazione · Lecce, Italia</span>
+      <span><a href="/privacy.html" data-i="Privacy" data-en="Privacy">Privacy</a> · <span data-i="P.IVA in attivazione · Lecce, Italia" data-en="VAT in activation · Lecce, Italy">P.IVA in attivazione · Lecce, Italia</span></span>
     </div>
   </div>
 </footer>
@@ -1849,7 +1952,21 @@ dopo aver deciso.</div>
       const en = el.getAttribute('data-en-ph') || it;
       el.placeholder = lang === 'it' ? it : en;
     });
-    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    // Title + description bilingue
+    document.title = lang === 'it'
+      ? "Innovation Manager esterno per PMI · Lecce · Sandro Vespucci"
+      : "External Innovation Manager for SMEs · Apulia · Sandro Vespucci";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', lang === 'it'
+        ? "Sandro Vespucci — Innovation Manager esterno per PMI. Business Intelligence, AI applicata, automazione e formazione. Sede a Lecce, operativo in tutta Italia. Check-up gratuito."
+        : "Sandro Vespucci — External Innovation Manager for SMEs. Business Intelligence, applied AI, automation and training. Based in Lecce, operating across Italy. Free check-up.");
+    }
+    langButtons.forEach(b => {
+      const is = b.dataset.lang === lang;
+      b.classList.toggle('active', is);
+      b.setAttribute('aria-pressed', is ? 'true' : 'false');
+    });
     localStorage.setItem('theim-lang', lang);
   }
   langButtons.forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
@@ -1879,7 +1996,8 @@ dopo aver deciso.</div>
   const burger = document.getElementById('burger');
   const mobileMenu = document.getElementById('mobileMenu');
   burger?.addEventListener('click', () => {
-    document.body.classList.toggle('menu-open');
+    const open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   mobileMenu.querySelectorAll('a').forEach(a =>
     a.addEventListener('click', () => document.body.classList.remove('menu-open'))
@@ -1891,7 +2009,11 @@ dopo aver deciso.</div>
   tabs.forEach(t => {
     t.addEventListener('click', () => {
       const idx = t.dataset.tab;
-      tabs.forEach(x => x.classList.toggle('active', x.dataset.tab === idx));
+      tabs.forEach(x => {
+        const is = x.dataset.tab === idx;
+        x.classList.toggle('active', is);
+        x.setAttribute('aria-selected', is ? 'true' : 'false');
+      });
       panels.forEach(p => p.classList.toggle('active', p.dataset.panel === idx));
     });
   });
@@ -1919,20 +2041,46 @@ dopo aver deciso.</div>
   const ticker = document.getElementById('tickerTrack');
   if (ticker) ticker.innerHTML += ticker.innerHTML;
 
-  // ===================== CONTACT FORM =====================
+  // ===================== CONTACT FORM (Web3Forms) =====================
   const form = document.getElementById('contactForm');
   const success = document.getElementById('formSuccess');
-  form?.addEventListener('submit', (e) => {
+  const errorBox = document.getElementById('formError');
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
-    Array.from(form.elements).forEach(el => { if (el !== success) el.disabled = true; });
-    setTimeout(() => {
-      success.classList.add('visible');
-      form.style.opacity = '0.6';
-    }, 300);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    Array.from(form.elements).forEach(el => { el.disabled = true; });
+    if (submitBtn) {
+      submitBtn.dataset.originalLabel = submitBtn.querySelector('span:first-child').textContent;
+      submitBtn.querySelector('span:first-child').textContent = currentLang === 'it' ? 'Invio in corso…' : 'Sending…';
+    }
+    try {
+      const formData = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        success.classList.add('visible');
+        form.style.opacity = '0.6';
+      } else {
+        throw new Error(data.message || 'Submit failed');
+      }
+    } catch (err) {
+      Array.from(form.elements).forEach(el => { el.disabled = false; });
+      if (submitBtn && submitBtn.dataset.originalLabel) {
+        submitBtn.querySelector('span:first-child').textContent = submitBtn.dataset.originalLabel;
+      }
+      if (errorBox) errorBox.classList.add('visible');
+      else alert(currentLang === 'it'
+        ? 'Si è verificato un errore. Riprova o scrivimi a sandro.vespucci@gmail.com'
+        : 'Something went wrong. Please try again or email sandro.vespucci@gmail.com');
+    }
   });
 
   // ===================== HERO PARALLAX (subtle) =====================
