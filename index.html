@@ -152,14 +152,15 @@
   .brand-mark {
     display: flex;
     align-items: baseline;
-    gap: 2px;
+    gap: 0;
     font-family: var(--serif);
     font-style: italic;
     font-size: 26px;
     color: var(--cream);
     letter-spacing: -0.5px;
   }
-  .brand-mark .apos { color: var(--gold); padding: 0 1px; }
+  .brand-mark .the { color: var(--gold); margin-right: 0.32em; }
+  .brand-mark .apos { color: var(--gold); }
   .brand-mark .small {
     font-family: var(--mono);
     font-style: normal;
@@ -898,6 +899,33 @@
     font-size: 15px;
   }
   .about-text strong { color: var(--cream); font-weight: 700; }
+  .about-text .cv-link {
+    margin-top: 4px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .about-text .cv-link a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    color: var(--gold);
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transition: opacity 0.2s ease, gap 0.2s ease;
+  }
+  .about-text .cv-link a:hover { opacity: 0.85; gap: 14px; }
+  .about-text .cv-link a .arrow { font-size: 14px; }
+  .about-text .cv-link a .cv-ext {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-left: 6px;
+    padding-left: 12px;
+    border-left: 1px solid var(--line-strong);
+  }
 
   .stats-row {
     margin-top: 80px;
@@ -1321,7 +1349,7 @@
 <!-- ============ NAV ============ -->
 <nav class="top" id="topNav" data-screen-label="Nav">
   <a href="#hero" class="brand-mark" aria-label="The Innovation Manager">
-    <span>I</span><span class="apos">'</span><span>m</span>
+    <span class="the">The</span><span>I</span><span class="apos">'</span><span>m</span>
     <span class="small" data-i="The Innovation Manager" data-en="The Innovation Manager">The Innovation Manager</span>
   </a>
   <div class="nav-links">
@@ -1492,6 +1520,25 @@ dopo aver deciso.</div>
       <details class="service">
         <summary>
           <span class="service-num">02</span>
+          <h3 class="service-title" data-i="Formazione" data-en="Training">Formazione</h3>
+          <span class="service-toggle"></span>
+        </summary>
+        <div class="service-body">
+          <span></span>
+          <p data-i="Workshop e percorsi calibrati sul livello AI-Ready dell'azienda. I moduli partono dai sei pilastri dell'AI-Ready Process™ — processi leggibili, dati coerenti, eventi tracciabili, decisioni standardizzate, automazioni orchestrabili, contesto accessibile all'AI — e lavorano su materiali e flussi reali del cliente, non su esercizi di laboratorio. Temi: Power BI, AI applicata, cultura del dato, uso pratico dell'AI nei processi quotidiani. Erogabili in aula, online o ibrido." data-en="Workshops and learning paths calibrated on the company's AI-Ready level. Modules start from the six pillars of AI-Ready Process™ — legible processes, consistent data, traceable events, standardized decisions, orchestrable automations, AI-accessible context — and work on the client's real materials and flows, not lab exercises. Topics: Power BI, applied AI, data culture, practical use of AI in daily processes. Delivered in person, online or hybrid.">Workshop e percorsi calibrati sul livello AI-Ready dell'azienda. I moduli partono dai sei pilastri dell'AI-Ready Process™ — processi leggibili, dati coerenti, eventi tracciabili, decisioni standardizzate, automazioni orchestrabili, contesto accessibile all'AI — e lavorano su materiali e flussi reali del cliente, non su esercizi di laboratorio. Temi: Power BI, AI applicata, cultura del dato, uso pratico dell'AI nei processi quotidiani. Erogabili in aula, online o ibrido.</p>
+          <div class="meta">
+            <div><span class="label" data-i="Investimento" data-en="Investment">Investimento</span><span class="value" data-i="Su richiesta" data-en="On request">Su richiesta</span></div>
+            <div><span class="label" data-i="Formato" data-en="Format">Formato</span><span class="value" data-i="Aula · Online · Ibrido" data-en="In person · Online · Hybrid">Aula · Online · Ibrido</span></div>
+            <div class="tags">
+              <span class="tag">AI-Ready Process™</span><span class="tag">Power BI</span><span class="tag">AI applicata</span><span class="tag">Cultura del dato</span>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <details class="service">
+        <summary>
+          <span class="service-num">03</span>
           <h3 class="service-title" data-i="Valutazione Innovazione" data-en="Innovation Assessment">Valutazione Innovazione</h3>
           <span class="service-toggle"></span>
         </summary>
@@ -1510,7 +1557,7 @@ dopo aver deciso.</div>
 
       <details class="service">
         <summary>
-          <span class="service-num">03</span>
+          <span class="service-num">04</span>
           <h3 class="service-title" data-i="Progetto Innovazione" data-en="Innovation Project">Progetto Innovazione</h3>
           <span class="service-toggle"></span>
         </summary>
@@ -1529,7 +1576,7 @@ dopo aver deciso.</div>
 
       <details class="service">
         <summary>
-          <span class="service-num">04</span>
+          <span class="service-num">05</span>
           <h3 class="service-title" data-i="Innovation Manager Esterno" data-en="External Innovation Manager">Innovation Manager Esterno</h3>
           <span class="service-toggle"></span>
         </summary>
@@ -1545,25 +1592,6 @@ dopo aver deciso.</div>
           </div>
         </div>
       </details>
-
-      <details class="service">
-        <summary>
-          <span class="service-num">05</span>
-          <h3 class="service-title" data-i="Formazione" data-en="Training">Formazione</h3>
-          <span class="service-toggle"></span>
-        </summary>
-        <div class="service-body">
-          <span></span>
-          <p data-i="Workshop e percorsi su misura. Temi: dati, Power BI, AI applicata, cultura del dato, uso pratico dell'AI nei processi quotidiani. Erogabili in aula, online o in formato ibrido. Sempre con esempi e casi reali — niente teoria slegata dal lavoro." data-en="Tailor-made workshops and learning paths. Topics: data, Power BI, applied AI, data culture, practical use of AI in daily processes. Delivered in person, online or hybrid. Always with real examples and cases — no theory disconnected from work.">Workshop e percorsi su misura. Temi: dati, Power BI, AI applicata, cultura del dato, uso pratico dell'AI nei processi quotidiani. Erogabili in aula, online o in formato ibrido. Sempre con esempi e casi reali — niente teoria slegata dal lavoro.</p>
-          <div class="meta">
-            <div><span class="label" data-i="Investimento" data-en="Investment">Investimento</span><span class="value" data-i="Su richiesta" data-en="On request">Su richiesta</span></div>
-            <div><span class="label" data-i="Formato" data-en="Format">Formato</span><span class="value" data-i="Aula · Online · Ibrido" data-en="In person · Online · Hybrid">Aula · Online · Ibrido</span></div>
-            <div class="tags">
-              <span class="tag">Power BI</span><span class="tag">AI applicata</span><span class="tag">Cultura del dato</span>
-            </div>
-          </div>
-        </div>
-      </details>
     </div>
   </div>
 </section>
@@ -1572,71 +1600,101 @@ dopo aver deciso.</div>
 <section class="method" id="metodo" data-screen-label="04 Metodo">
   <div class="container">
     <div class="section-head reveal">
-      <div class="num">— 02 / <span data-i="Metodo" data-en="Method">Metodo</span></div>
-      <h2 class="display"><span data-i="Quattro fasi. Un solo principio: capire prima di costruire." data-en="Four phases. One principle: understand before building.">Quattro <em>fasi</em>. Un solo principio: capire prima di costruire.</span></h2>
+      <div class="num">— 02 / <span data-i="Metodo · AI-Ready Process™" data-en="Method · AI-Ready Process™">Metodo · AI-Ready Process™</span></div>
+      <h2 class="display"><span data-i="Sei pilastri. Visibilità prima, azione poi — e l'AI può collaborare." data-en="Six pillars. Visibility first, action next — and AI can collaborate.">Sei <em>pilastri</em>. Visibilità prima, azione poi — e l'AI può collaborare.</span></h2>
     </div>
 
     <div class="method-tabs">
       <div class="method-tabs-list" role="tablist">
         <button class="method-tab active" data-tab="0" role="tab" aria-selected="true" aria-controls="method-panel-0" id="method-tab-0">
           <span class="tab-num">01</span>
-          <span class="tab-name" data-i="Analisi" data-en="Analysis">Analisi</span>
+          <span class="tab-name" data-i="Processi leggibili" data-en="Legible processes">Processi leggibili</span>
         </button>
         <button class="method-tab" data-tab="1" role="tab" aria-selected="false" aria-controls="method-panel-1" id="method-tab-1">
           <span class="tab-num">02</span>
-          <span class="tab-name" data-i="Base dati" data-en="Data foundation">Base dati</span>
+          <span class="tab-name" data-i="Dati coerenti" data-en="Consistent data">Dati coerenti</span>
         </button>
         <button class="method-tab" data-tab="2" role="tab" aria-selected="false" aria-controls="method-panel-2" id="method-tab-2">
           <span class="tab-num">03</span>
-          <span class="tab-name" data-i="Dashboard" data-en="Dashboards">Dashboard</span>
+          <span class="tab-name" data-i="Eventi tracciabili" data-en="Traceable events">Eventi tracciabili</span>
         </button>
         <button class="method-tab" data-tab="3" role="tab" aria-selected="false" aria-controls="method-panel-3" id="method-tab-3">
           <span class="tab-num">04</span>
-          <span class="tab-name" data-i="Automazione" data-en="Automation">Automazione</span>
+          <span class="tab-name" data-i="Decisioni standardizzate" data-en="Standardized decisions">Decisioni standardizzate</span>
+        </button>
+        <button class="method-tab" data-tab="4" role="tab" aria-selected="false" aria-controls="method-panel-4" id="method-tab-4">
+          <span class="tab-num">05</span>
+          <span class="tab-name" data-i="Automazioni orchestrabili" data-en="Orchestrable automations">Automazioni orchestrabili</span>
+        </button>
+        <button class="method-tab" data-tab="5" role="tab" aria-selected="false" aria-controls="method-panel-5" id="method-tab-5">
+          <span class="tab-num">06</span>
+          <span class="tab-name" data-i="Contesto accessibile all'AI" data-en="AI-accessible context">Contesto accessibile all'AI</span>
         </button>
       </div>
 
       <div class="method-panels">
         <div class="method-panel active" data-panel="0" role="tabpanel" id="method-panel-0" aria-labelledby="method-tab-0">
-          <div class="panel-eyebrow" data-i="Fase 01 · Capire" data-en="Phase 01 · Understand">Fase 01 · Capire</div>
-          <h3><span data-i="Capire come funziona davvero l'azienda." data-en="Understand how the company really works." style="font-family: &quot;Times New Roman&quot;">Capire come funziona <em>davvero</em> l'azienda.</span></h3>
-          <p class="body" data-i="Processi, persone, dati. Mappiamo il flusso di lavoro così com'è — non come dovrebbe essere sulla carta. Si parla con chi fa il lavoro ogni giorno, si guardano i dati esistenti, si individuano i punti di rottura. Niente PowerPoint pre-confezionati." data-en="Processes, people, data. We map the workflow as it is — not how it should be on paper. We talk to those doing the work every day, look at existing data, identify the friction points. No pre-packaged PowerPoints.">Processi, persone, dati. Mappiamo il flusso di lavoro così com'è — non come dovrebbe essere sulla carta. Si parla con chi fa il lavoro ogni giorno, si guardano i dati esistenti, si individuano i punti di rottura. Niente PowerPoint pre-confezionati.</p>
+          <div class="panel-eyebrow" data-i="Pilastro 01 · Visibilità" data-en="Pillar 01 · Visibility">Pilastro 01 · Visibilità</div>
+          <h3><span data-i="Mappare il lavoro come succede davvero." data-en="Map how the work actually happens.">Mappare il lavoro come <em>succede davvero</em>.</span></h3>
+          <p class="body" data-i="Le attività non vivono nelle teste delle persone. Sono descritte, hanno passaggi chiari, eccezioni gestite per regola e non a memoria. Si mappa il flusso oltre i diagrammi dichiarati — quello che davvero succede ogni giorno." data-en="Activities don't live in people's heads. They're described, with clear steps, exceptions handled by rule not memory. We map the workflow beyond the declared diagrams — what actually happens every day.">Le attività non vivono nelle teste delle persone. Sono descritte, hanno passaggi chiari, eccezioni gestite per regola e non a memoria. Si mappa il flusso oltre i diagrammi dichiarati — quello che davvero succede ogni giorno.</p>
           <div class="actions">
-            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Mappa onesta dello stato attuale" data-en="Honest map of the current state">Mappa onesta dello stato attuale</p></div>
-            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Interviste · Process mapping · Audit dati" data-en="Interviews · Process mapping · Data audit">Interviste · Process mapping · Audit dati</p></div>
-            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Imprenditore · Team operativo · IT" data-en="Owner · Ops team · IT">Imprenditore · Team operativo · IT</p></div>
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Documento di processo condiviso e responsabilità per fase" data-en="Shared process document with phase ownership">Documento di processo condiviso e responsabilità per fase</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Interviste · Process mapping · Audit eccezioni" data-en="Interviews · Process mapping · Exception audit">Interviste · Process mapping · Audit eccezioni</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Imprenditore · Operativi · Responsabili" data-en="Owner · Ops · Department heads">Imprenditore · Operativi · Responsabili</p></div>
           </div>
         </div>
 
         <div class="method-panel" data-panel="1" role="tabpanel" id="method-panel-1" aria-labelledby="method-tab-1">
-          <div class="panel-eyebrow" data-i="Fase 02 · Organizzare" data-en="Phase 02 · Organize">Fase 02 · Organizzare</div>
-          <h3><span data-i="Organizzare le fondamenta informative." data-en="Organize the informational foundations.">Organizzare le <em>fondamenta</em> informative.</span></h3>
-          <p class="body" data-i="Una base dati solida è la condizione, non l'optional. Strutture, modelli, integrazioni, qualità del dato. Senza questo, ogni dashboard è un castello di carta. Si lavora su SQL Server, MySQL, ETL, modellazione — tutto pensato per durare oltre il progetto." data-en="A solid data foundation is the prerequisite, not an extra. Structures, models, integrations, data quality. Without it, every dashboard is a house of cards. We work on SQL Server, MySQL, ETL, modeling — designed to last beyond the project.">Una base dati solida è la condizione, non l'optional. Strutture, modelli, integrazioni, qualità del dato. Senza questo, ogni dashboard è un castello di carta. Si lavora su SQL Server, MySQL, ETL, modellazione — tutto pensato per durare oltre il progetto.</p>
+          <div class="panel-eyebrow" data-i="Pilastro 02 · Visibilità" data-en="Pillar 02 · Visibility">Pilastro 02 · Visibilità</div>
+          <h3><span data-i="Una sola sorgente dati, coerente tra reparti." data-en="One single data source, consistent across departments.">Una sola <em>sorgente dati</em>, coerente tra reparti.</span></h3>
+          <p class="body" data-i="Anagrafiche allineate, sorgenti unificate, definizioni condivise. Lo stesso numero significa la stessa cosa in tutta l'azienda. Si lavora su SQL Server, MySQL, ETL, modellazione — fondamenta che durano oltre il progetto." data-en="Aligned master data, unified sources, shared definitions. The same number means the same thing across the company. We work on SQL Server, MySQL, ETL, modeling — foundations that last beyond the project.">Anagrafiche allineate, sorgenti unificate, definizioni condivise. Lo stesso numero significa la stessa cosa in tutta l'azienda. Si lavora su SQL Server, MySQL, ETL, modellazione — fondamenta che durano oltre il progetto.</p>
           <div class="actions">
-            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Modello dati documentato e affidabile" data-en="Documented, reliable data model">Modello dati documentato e affidabile</p></div>
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Codice cliente unico tra CRM, gestionale, fatturazione e dashboard" data-en="Single customer ID across CRM, ERP, billing and dashboards">Codice cliente unico tra CRM, gestionale, fatturazione e dashboard</p></div>
             <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="SQL Server · MySQL · ETL · Power Query" data-en="SQL Server · MySQL · ETL · Power Query">SQL Server · MySQL · ETL · Power Query</p></div>
             <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="IT · Reparti operativi" data-en="IT · Ops departments">IT · Reparti operativi</p></div>
           </div>
         </div>
 
         <div class="method-panel" data-panel="2" role="tabpanel" id="method-panel-2" aria-labelledby="method-tab-2">
-          <div class="panel-eyebrow" data-i="Fase 03 · Decidere" data-en="Phase 03 · Decide">Fase 03 · Decidere</div>
-          <h3><span data-i="Trasformare i dati in strumenti decisionali." data-en="Turn data into decision-making tools.">Trasformare i dati in <em>strumenti</em> decisionali.</span></h3>
-          <p class="body" data-i="Dashboard, KPI, report che il management consulta davvero. Costruite con Power BI, DAX, Power Query — ma il vero progetto sta nel definire cosa serve sapere e cosa è solo rumore. La differenza tra un report e una dashboard è una sola: la dashboard fa decidere." data-en="Dashboards, KPIs, reports the management actually uses. Built with Power BI, DAX, Power Query — but the real project is defining what needs to be known and what is just noise. The difference between a report and a dashboard is one: the dashboard drives decisions.">Dashboard, KPI, report che il management consulta davvero. Costruite con Power BI, DAX, Power Query — ma il vero progetto sta nel definire cosa serve sapere e cosa è solo rumore. La differenza tra un report e una dashboard è una sola: la dashboard fa decidere.</p>
+          <div class="panel-eyebrow" data-i="Pilastro 03 · Visibilità" data-en="Pillar 03 · Visibility">Pilastro 03 · Visibilità</div>
+          <h3><span data-i="Ogni passaggio chiave lascia una traccia." data-en="Every key step leaves a trace.">Ogni passaggio chiave <em>lascia una traccia</em>.</span></h3>
+          <p class="body" data-i="Si vede cosa è successo prima che diventi un problema: quando, da chi, con quale esito. I flussi sono strumentati, i KPI si calcolano da eventi reali, non da Excel inviati per email. La dashboard fa decidere perché poggia su eventi tracciabili." data-en="You see what happened before it becomes a problem: when, by whom, with what outcome. Flows are instrumented, KPIs compute from real events, not from emailed Excels. The dashboard drives decisions because it rests on traceable events.">Si vede cosa è successo prima che diventi un problema: quando, da chi, con quale esito. I flussi sono strumentati, i KPI si calcolano da eventi reali, non da Excel inviati per email. La dashboard fa decidere perché poggia su eventi tracciabili.</p>
           <div class="actions">
-            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Dashboard adottate dal management" data-en="Dashboards adopted by management">Dashboard adottate dal management</p></div>
-            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Power BI · DAX · KPI design" data-en="Power BI · DAX · KPI design">Power BI · DAX · KPI design</p></div>
-            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Management · Responsabili" data-en="Management · Department heads">Management · Responsabili</p></div>
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Log delle approvazioni e dashboard adottate dal management" data-en="Approval logs and dashboards adopted by management">Log delle approvazioni e dashboard adottate dal management</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Power BI · DAX · KPI design · Event tracking" data-en="Power BI · DAX · KPI design · Event tracking">Power BI · DAX · KPI design · Event tracking</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Management · Responsabili · IT" data-en="Management · Department heads · IT">Management · Responsabili · IT</p></div>
           </div>
         </div>
 
         <div class="method-panel" data-panel="3" role="tabpanel" id="method-panel-3" aria-labelledby="method-tab-3">
-          <div class="panel-eyebrow" data-i="Fase 04 · Liberare" data-en="Phase 04 · Free up">Fase 04 · Liberare</div>
-          <h3><span data-i="Eliminare i processi lunghi e ripetitivi." data-en="Eliminate the long, repetitive processes.">Eliminare i processi <em>lunghi</em> e ripetitivi.</span></h3>
-          <p class="body" data-i="Dove la persona è solo un esecutore di task ripetitivi, c'è spreco. Power Automate, Agentic AI, integrazioni: si automatizza ciò che non richiede giudizio umano. Le persone tornano a fare il lavoro per cui sono state assunte — quello che richiede testa, non clic." data-en="Where a person is just a repetitive task executor, there is waste. Power Automate, Agentic AI, integrations: we automate what doesn't require human judgment. People go back to doing the work they were hired for — the kind that needs a brain, not clicks.">Dove la persona è solo un esecutore di task ripetitivi, c'è spreco. Power Automate, Agentic AI, integrazioni: si automatizza ciò che non richiede giudizio umano. Le persone tornano a fare il lavoro per cui sono state assunte — quello che richiede testa, non clic.</p>
+          <div class="panel-eyebrow" data-i="Pilastro 04 · Azione" data-en="Pillar 04 · Action">Pilastro 04 · Azione</div>
+          <h3><span data-i="Decisioni ricorrenti con criteri scritti." data-en="Recurring decisions with written criteria.">Decisioni ricorrenti con <em>criteri scritti</em>.</span></h3>
+          <p class="body" data-i="Regole, soglie e responsabilità formalizzate. Le scelte ricorrenti non dipendono da chi chiede o dal momento. Le eccezioni hanno un percorso. Meno decisioni verbali, meno eccezioni continue — più tempo per il giudizio che conta davvero." data-en="Formalized rules, thresholds and responsibilities. Recurring choices don't depend on who asks or when. Exceptions have a path. Fewer verbal decisions, fewer continuous exceptions — more time for the judgment that really counts.">Regole, soglie e responsabilità formalizzate. Le scelte ricorrenti non dipendono da chi chiede o dal momento. Le eccezioni hanno un percorso. Meno decisioni verbali, meno eccezioni continue — più tempo per il giudizio che conta davvero.</p>
           <div class="actions">
-            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Tempo restituito alle persone" data-en="Time given back to people">Tempo restituito alle persone</p></div>
-            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Power Automate · Agentic AI · LLM · API" data-en="Power Automate · Agentic AI · LLM · API">Power Automate · Agentic AI · LLM · API</p></div>
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Politica di sconto con regole esplicite e workflow di deroga" data-en="Discount policy with explicit rules and exception workflow">Politica di sconto con regole esplicite e workflow di deroga</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Decision matrix · Workflow design · Policy library" data-en="Decision matrix · Workflow design · Policy library">Decision matrix · Workflow design · Policy library</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Imprenditore · Management" data-en="Owner · Management">Imprenditore · Management</p></div>
+          </div>
+        </div>
+
+        <div class="method-panel" data-panel="4" role="tabpanel" id="method-panel-4" aria-labelledby="method-tab-4">
+          <div class="panel-eyebrow" data-i="Pilastro 05 · Azione" data-en="Pillar 05 · Action">Pilastro 05 · Azione</div>
+          <h3><span data-i="Automazioni che dialogano, non isole." data-en="Automations that talk to each other, not islands.">Automazioni che <em>dialogano</em>, non isole.</span></h3>
+          <p class="body" data-i="Sistemi e attività connessi, governabili e modificabili senza riscrivere tutto. Quando un'automazione si rompe, è chiaro cosa si ferma a valle e cosa va riparato. Power Automate, Agentic AI, integrazioni — pensate per essere orchestrate, non incollate." data-en="Connected systems and activities, governable and modifiable without rewriting everything. When an automation breaks, it's clear what stops downstream and what needs fixing. Power Automate, Agentic AI, integrations — designed to be orchestrated, not glued.">Sistemi e attività connessi, governabili e modificabili senza riscrivere tutto. Quando un'automazione si rompe, è chiaro cosa si ferma a valle e cosa va riparato. Power Automate, Agentic AI, integrazioni — pensate per essere orchestrate, non incollate.</p>
+          <div class="actions">
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Integrazione gestionale → CRM → email marketing monitorata" data-en="Integration ERP → CRM → email marketing, monitored">Integrazione gestionale → CRM → email marketing monitorata</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Power Automate · API · iPaaS · Agentic AI" data-en="Power Automate · API · iPaaS · Agentic AI">Power Automate · API · iPaaS · Agentic AI</p></div>
+            <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="IT · Reparti operativi" data-en="IT · Ops departments">IT · Reparti operativi</p></div>
+          </div>
+        </div>
+
+        <div class="method-panel" data-panel="5" role="tabpanel" id="method-panel-5" aria-labelledby="method-tab-5">
+          <div class="panel-eyebrow" data-i="Pilastro 06 · Azione" data-en="Pillar 06 · Action">Pilastro 06 · Azione</div>
+          <h3><span data-i="L'azienda diventa leggibile da un sistema intelligente." data-en="The company becomes readable by an intelligent system.">L'azienda diventa <em>leggibile</em> da un sistema intelligente.</span></h3>
+          <p class="body" data-i="L'AI ha un contesto a cui attingere: documenti strutturati, dati puliti, definizioni esplicite. Non risponde 'a sentimento'. Documentazione, terminologia, regole e dati sono organizzati così che un agente intelligente possa lavorarci sopra — e non solo le persone." data-en="AI has a context to draw from: structured documents, clean data, explicit definitions. It doesn't answer 'by feeling'. Documentation, terminology, rules and data are organized so an intelligent agent can work on them — not just people.">L'AI ha un contesto a cui attingere: documenti strutturati, dati puliti, definizioni esplicite. Non risponde 'a sentimento'. Documentazione, terminologia, regole e dati sono organizzati così che un agente intelligente possa lavorarci sopra — e non solo le persone.</p>
+          <div class="actions">
+            <div class="item"><span class="label" data-i="Cosa produce" data-en="Output">Cosa produce</span><p data-i="Base di conoscenza aziendale connessa a un assistente AI interno" data-en="Company knowledge base connected to an internal AI assistant">Base di conoscenza aziendale connessa a un assistente AI interno</p></div>
+            <div class="item"><span class="label" data-i="Strumenti" data-en="Tools">Strumenti</span><p data-i="Knowledge base · Agentic AI · LLM · Vector DB" data-en="Knowledge base · Agentic AI · LLM · Vector DB">Knowledge base · Agentic AI · LLM · Vector DB</p></div>
             <div class="item"><span class="label" data-i="Coinvolge" data-en="Involves">Coinvolge</span><p data-i="Tutta l'organizzazione" data-en="The whole organization">Tutta l'organizzazione</p></div>
           </div>
         </div>
@@ -1672,6 +1730,13 @@ dopo aver deciso.</div>
         </p>
         <p data-i="In fase di acquisizione della &lt;strong&gt;Certificazione Innovation Manager UNI 11814&lt;/strong&gt; — standard nazionale riconosciuto ACCREDIA, tramite Smarter Srl. Esame previsto luglio 2026." data-en="Currently acquiring the &lt;strong&gt;Innovation Manager UNI 11814 Certification&lt;/strong&gt; — national standard recognized by ACCREDIA, via Smarter Srl. Exam scheduled July 2026.">
           In fase di acquisizione della <strong>Certificazione Innovation Manager UNI 11814</strong> — standard nazionale riconosciuto ACCREDIA, tramite Smarter Srl. Esame previsto luglio 2026.
+        </p>
+        <p class="cv-link">
+          <a href="assets/Sandro_Vespucci_CV_2026.pdf" target="_blank" rel="noopener" download>
+            <span data-i="Scarica il curriculum completo" data-en="Download the full CV">Scarica il curriculum completo</span>
+            <span class="arrow">→</span>
+            <span class="cv-ext">PDF · 366 KB</span>
+          </a>
         </p>
       </div>
     </div>
@@ -1788,6 +1853,18 @@ dopo aver deciso.</div>
       <details class="faq">
         <summary><span data-i="Sostituisci il mio team IT?" data-en="Do you replace my IT team?">Sostituisci il mio team IT?</span><span class="toggle"></span></summary>
         <div class="faq-body" data-i="No. Lavoro in collaborazione con i tecnici interni, non in opposizione. Il mio ruolo è ponte tra business e tecnologia: traduco le esigenze dell'imprenditore in soluzioni che il team IT può realizzare e mantenere." data-en="No. I work alongside internal tech people, not against them. My role is the bridge between business and technology: I translate the owner's needs into solutions the IT team can build and maintain.">No. Lavoro in collaborazione con i tecnici interni, non in opposizione. Il mio ruolo è ponte tra business e tecnologia: traduco le esigenze dell'imprenditore in soluzioni che il team IT può realizzare e mantenere.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="In cosa la vostra formazione è diversa da un corso generico su AI?" data-en="How is your training different from a generic AI course?">In cosa la vostra formazione è diversa da un corso generico su AI?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="Non parto dagli strumenti, parto dai sei pilastri dell'AI-Ready Process™. Prima misuriamo dove l'azienda è oggi, poi scegliamo solo i moduli che hanno il ritorno più alto. Ogni esercitazione lavora su materiali e flussi reali del cliente, non su case study astratti. Output dichiarato per modulo: una mappa, un documento, una dashboard, una procedura. Si esce con qualcosa in mano." data-en="I don't start from tools, I start from the six pillars of AI-Ready Process™. First we measure where the company stands, then we pick only the modules with the highest return. Every exercise works on real client materials and flows, not abstract case studies. Each module has a declared output: a map, a document, a dashboard, a procedure. You leave with something in hand.">Non parto dagli strumenti, parto dai sei pilastri dell'AI-Ready Process™. Prima misuriamo dove l'azienda è oggi, poi scegliamo solo i moduli che hanno il ritorno più alto. Ogni esercitazione lavora su materiali e flussi reali del cliente, non su case study astratti. Output dichiarato per modulo: una mappa, un documento, una dashboard, una procedura. Si esce con qualcosa in mano.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="La formazione è finanziabile?" data-en="Is the training fundable?">La formazione è finanziabile?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="Sì. I percorsi possono essere finanziati tramite i principali fondi interprofessionali — Fondimpresa, Fondirigenti, Fondo Nuove Competenze (FNC). Supporto la preparazione del piano formativo da presentare al fondo come parte del servizio, allineando i moduli alle linee guida richieste." data-en="Yes. Learning paths can be funded through Italy's main interprofessional funds — Fondimpresa, Fondirigenti, Fondo Nuove Competenze (FNC). I support the preparation of the training plan submitted to the fund as part of the service, aligning modules to the required guidelines.">Sì. I percorsi possono essere finanziati tramite i principali fondi interprofessionali — Fondimpresa, Fondirigenti, Fondo Nuove Competenze (FNC). Supporto la preparazione del piano formativo da presentare al fondo come parte del servizio, allineando i moduli alle linee guida richieste.</div>
+      </details>
+      <details class="faq">
+        <summary><span data-i="Come decidiamo quali moduli servono alla mia azienda?" data-en="How do we decide which modules your company needs?">Come decidiamo quali moduli servono alla mia azienda?</span><span class="toggle"></span></summary>
+        <div class="faq-body" data-i="Si parte dal check-up gratuito sui sei pilastri AI-Ready. Quello indica dove l'azienda ha più gap e quindi quali moduli avrebbero il ritorno più alto. Poi si costruisce un percorso modulare — 2–3 giornate possono bastare per un team dirigenziale, 7–8 distribuite su un trimestre per un programma full Academy. Ogni modulo è autoconsistente: si può iniziare da uno e aggiungere gli altri quando serve." data-en="We start from the free check-up on the six AI-Ready pillars. That shows where the company has the biggest gaps and therefore which modules would yield the highest return. Then we build a modular path — 2–3 days can suffice for an executive team, 7–8 days spread over a quarter for a full Academy program. Each module is self-contained: you can start with one and add others when needed.">Si parte dal check-up gratuito sui sei pilastri AI-Ready. Quello indica dove l'azienda ha più gap e quindi quali moduli avrebbero il ritorno più alto. Poi si costruisce un percorso modulare — 2–3 giornate possono bastare per un team dirigenziale, 7–8 distribuite su un trimestre per un programma full Academy. Ogni modulo è autoconsistente: si può iniziare da uno e aggiungere gli altri quando serve.</div>
       </details>
       <details class="faq">
         <summary><span data-i="Come gestisci la riservatezza dei dati?" data-en="How do you handle data confidentiality?">Come gestisci la riservatezza dei dati?</span><span class="toggle"></span></summary>
@@ -1908,7 +1985,7 @@ dopo aver deciso.</div>
   <div class="container" style="padding: 0;">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="brand-mark"><span>I</span><span class="apos">'</span><span>m</span><span class="small">The Innovation Manager</span></div>
+        <div class="brand-mark"><span class="the">The</span><span>I</span><span class="apos">'</span><span>m</span><span class="small">The Innovation Manager</span></div>
         <p data-i="Sandro Vespucci · Innovation Manager esterno per PMI. Trasformo dati, processi e innovazione in risultati concreti attraverso consulenza, progettazione e formazione." data-en="Sandro Vespucci · External Innovation Manager for SMEs. I turn data, processes and innovation into concrete results through consulting, design and training.">Sandro Vespucci · Innovation Manager esterno per PMI. Trasformo dati, processi e innovazione in risultati concreti attraverso consulenza, progettazione e formazione.</p>
       </div>
       <div class="footer-col">
